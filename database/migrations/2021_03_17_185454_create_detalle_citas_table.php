@@ -22,8 +22,7 @@ class CreateDetalleCitasTable extends Migration
             $table->unsignedBigInteger('servicio_id');
             $table->unsignedBigInteger('estado_cita_id');
             $table->unsignedBigInteger('jornada_id');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('servicio_id')->references('id')->on('servicios')->onDelete('cascade');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');            
             $table->foreign('estado_cita_id')->references('id')->on('estado_citas')->onDelete('cascade');
             $table->foreign('jornada_id')->references('id')->on('jornadas')->onDelete('cascade');
             $table->timestamps();
