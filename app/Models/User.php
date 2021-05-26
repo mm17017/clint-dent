@@ -1,11 +1,11 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-Y es
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -36,4 +36,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+
+    //Relaciones de uno a muchos
+    public function detalle_citas(){
+        return $this->hasMany('App\Models\Detalle_cita');
+    }
+
+    //Relaciones de uno a muchos inversa
+    public function tipo_usuario(){
+        return $this->belongsTo('App\Models\Tipo_usuario');
+    }
 }
