@@ -8,7 +8,7 @@ class Tipo_usuario extends Model
 {
     protected $table='tipo_usuarios';
     //Relacion uno a muchos
-    public function users(){
-        return $this->hasMany('App\Models\User');
+    public function Users(){
+        return $this->hasMany(User::class);
     }
 }

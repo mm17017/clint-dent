@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -35,4 +36,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function detalle_cita(){
+        return $this->hasMany(detalle_cita::class);
+    }
+
+    public function tipo_usuarios(){
+        return $this->belongsTo(tipo_usuarios::class);
+    }
 }
