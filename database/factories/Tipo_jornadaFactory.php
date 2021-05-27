@@ -2,7 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\Models\tipo_jornada;
+use App\Models\Tipo_jornada;
 use Faker\Generator as Faker;
 
 $factory->define(Tipo_jornada::class, function (Faker $faker) {

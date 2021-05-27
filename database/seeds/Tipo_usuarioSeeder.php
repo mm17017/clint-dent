@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\tipo_usuario;
+use App\Models\Tipo_usuario;
 use Illuminate\Database\Seeder;
 
 class Tipo_usuarioSeeder extends Seeder
@@ -12,6 +12,6 @@ class Tipo_usuarioSeeder extends Seeder
      */
     public function run()
     {
-        factory(tipo_usuario::class, 5)->create();
+        factory(Tipo_usuario::class, 5)->create();
     }
 }

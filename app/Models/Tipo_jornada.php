@@ -4,7 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class tipo_jornada extends Model
+class Tipo_jornada extends Model
 {
+    protected $table='tipo_jornadas';
     //
 }

@@ -1,6 +1,6 @@
 <?php
 
-use App\Models\tipo_jornada;
+use App\Models\Tipo_jornada;
 use Illuminate\Database\Seeder;
 
 class Tipo_jornadaSeeder extends Seeder
@@ -12,6 +12,6 @@ class Tipo_jornadaSeeder extends Seeder
      */
     public function run()
     {
-        factory(tipo_jornada::class, 5)->create();
+        factory(Tipo_jornada::class, 5)->create();
     }
 }
