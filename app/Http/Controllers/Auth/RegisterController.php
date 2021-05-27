@@ -77,7 +77,7 @@ class RegisterController extends Controller
             'last_name' => $data['last_name'],
             'fecha_nacimiento' => $data['fecha_nacimiento'],
             'telefono' => $data['telefono'],
-            'name_usuario' => $data['name'],
+            
         ]);
     }
 }
