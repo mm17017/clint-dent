@@ -18,8 +18,7 @@ class CreateDetalleCitasTable extends Migration
             $table->string('descripcion', 50)->nullable();
             $table->date('fecha_cita');
             $table->time('hora_cita');
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('servicio_id');
+            $table->unsignedBigInteger('user_id');            
             $table->unsignedBigInteger('estado_cita_id');
             $table->unsignedBigInteger('jornada_id');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');            

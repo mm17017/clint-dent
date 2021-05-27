@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class detalle_cita extends Model
 {
+    protected $table = 'detalle_citas';
+    
     public function usuarios()
     {
         return $this->belongsTo(User::class);
@@ -17,10 +19,10 @@ class detalle_cita extends Model
         return $this->belongsTo(Jornada::class);
     }
 
-    /*public function servicios()
+    public function servicios()
     {
-        return $this->belongsTo(Servicio::class);
-    }*/
+        return $this->belongsToMany(Servicio::class);
+    }
 
     public function estado_citas()
     {
