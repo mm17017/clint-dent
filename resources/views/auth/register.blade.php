@@ -15,12 +15,12 @@
 
                         
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
+                            <label for="name_usuario" class="col-md-4 col-form-label text-md-right">{{ __('Nombre') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="name_usuario" type="text" class="form-control @error('name_usuario') is-invalid @enderror" name="name_usuario" value="{{ old('name_usuario') }}" required autocomplete="name_usuario" autofocus>
 
-                                @error('name')
+                                @error('name_usuario')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -28,12 +28,12 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="last_name" class="col-md-4 col-form-label text-md-right">{{ __('Apellido') }}</label>
+                            <label for="lastname_usuario" class="col-md-4 col-form-label text-md-right">{{ __('Apellido') }}</label>
 
                             <div class="col-md-6">
-                                <input id="last_name" type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" value="{{ old('last_name') }}" required autocomplete="last_name">
+                                <input id="lastname_usuario" type="text" class="form-control @error('lastname_usuario') is-invalid @enderror" name="lastname_usuario" value="{{ old('lastname_usuario') }}" required autocomplete="lastname_usuario">
 
-                                @error('last_name')
+                                @error('lastname_usuario')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -58,7 +58,7 @@
                             <label for="fecha_nacimiento" class="col-md-4 col-form-label text-md-right">{{ __('Fecha de Nacimiento') }}</label>
 
                             <div class="col-md-6">
-                                <input id="fecha_nacimiento" type="date" class="form-control @error('fecha_nacimiento') is-invalid @enderror" name="fecha_nacimiento" value="{{ old('fecha_nacimiento') }}" required autocomplete="fecha_nacimiento" autofocus>
+                                <input id="fecha_nacimiento" type="text" class="form-control @error('fecha_nacimiento') is-invalid @enderror" name="fecha_nacimiento" value="{{ old('fecha_nacimiento') }}" required autocomplete="fecha_nacimiento" autofocus>
 
                                 @error('fecha_nacimiento')
                                     <span class="invalid-feedback" role="alert">

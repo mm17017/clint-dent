@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Jornada extends Model
 {
+    protected $table = 'jornadas';
+
     public function detalle_citas(){
         return $this->hasMany(detalle_citas::class);
     }

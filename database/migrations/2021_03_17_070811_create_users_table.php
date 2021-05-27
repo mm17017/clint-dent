@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->string('name_usuario', 50);
             $table->date('fecha_nacimiento');
             $table->string('telefono', 13)->nullable();
-            $table->unsignedBigInteger('tipo_usuario_id');
+            $table->unsignedBigInteger('tipo_usuario_id')->default(1);
             $table->foreign('tipo_usuario_id')
                 ->references('id')
                 ->on('tipo_usuarios')
