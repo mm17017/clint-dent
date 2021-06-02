@@ -78,7 +78,20 @@ body {
 [tabindex="-1"]:focus:not(:focus-visible) {
   outline: 0 !important;
 }
-
+.imagen-header {
+  background-image: url(../img/CLINT-DENT2.png);
+  height: 45rem;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  
+}
+.imagen-nosotros{
+  background-image: url(../img/3.jpg);
+  width: auto;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
 hr {
   box-sizing: content-box;
   height: 0;
