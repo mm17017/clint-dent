@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>ClintDent</title>
+    <title>Clint-Dent</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
@@ -21,11 +21,16 @@
             height: 100vh;
             margin: 0;
         }
-
+        .color-blanco{
+            color:#fff;
+        }
         .full-height {
             height: 100vh;
         }
 
+        .titulos{
+
+        }
         .flex-center {
             align-items: center;
             display: flex;
@@ -51,13 +56,16 @@
         }
 
         .links>a {
-            color: #329d9c;
+            color: #fff;
             padding: 0 25px;
-            font-size: 13px;
+            font-size: 15px;
             font-weight: 600;
             letter-spacing: .1rem;
             text-decoration: none;
             text-transform: uppercase;
+        }
+        .links a:hover{
+            color: #205072;
         }
 
         .m-b-md {
@@ -77,8 +85,8 @@
             } */
         .top-left {
             position: absolute;
-            left: 10px;
-            top: 10px;
+            left: 50px;
+            top: 0px;
         }
 
         .box {
@@ -101,9 +109,15 @@
             height: 400px;
         }
 
+        .sin-margen-top{
+            padding-bottom: 0;
+        }
 
-        .color-fondo {
-            background-color: #cff4d2;
+        .formato-link{
+            text-decoration: none;
+        }
+        .color-fondo-header {
+            background-color: #000000;
         }
     </style>
 </head>
@@ -114,18 +128,18 @@
 
 
         @if (Route::has('login'))
-        <div class="box color-fondo">
-            <div class="top-left ">
-                <img class="container-logo" src="{{URL::asset('img/ClintDent.png')}}" alt="">
+        <div class="box color-fondo-header">
+            <div class="top-left sin-margen-top">
+               <h3 class="color-blanco">C L I N T - D E N T</h3>
             </div>
             <div class="top-right links">
                 @auth
                 <a href="{{ url('/home') }}">Home</a>
                 @else
-                <a href="{{ route('login') }}">Login</a>
+                <a href="{{ route('login') }}">Iniciar Sesión</a>
 
                 @if (Route::has('register'))
-                <a href="{{ route('register') }}">Register</a>
+                <a href="{{ route('register') }}">Registrarse</a>
                 @endif
                 @endauth
             </div>

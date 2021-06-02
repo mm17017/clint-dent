@@ -3,7 +3,115 @@
 @section('content')
 <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<!-- Styles -->
+<style>
+        html,
+        body {
+            background-color: #cff4d2;
+            font-family: 'Nunito', sans-serif;
+            font-weight: 200;
+            height: 100vh;
+            margin: 0;
+        }
+        .color-blanco{
+            color:#fff;
+        }
+        .full-height {
+            height: 100vh;
+        }
 
+        .titulos{
+
+        }
+        .flex-center {
+            align-items: center;
+            display: flex;
+            justify-content: center;
+        }
+
+        .position-ref {
+            position: relative;
+        }
+
+        .top-right {
+            position: absolute;
+            right: 10px;
+            top: 20px;
+        }
+
+        .content {
+            text-align: center;
+        }
+
+        .title {
+            font-size: 84px;
+        }
+
+        .links>a {
+            color: #fff !important;
+            padding: 0 25px;
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: .1rem;
+            text-decoration: none;
+            text-transform: uppercase;
+        }
+        .links a:hover{
+            color: #205072 !important;
+        }
+
+        .m-b-md {
+            margin-bottom: 30px;
+        }
+
+        .container-logo {
+            /* max-width: 100%; */
+            width: auto;
+            height: auto;
+            max-width: 40px;
+            max-height: 40px;
+        }
+
+        /* .space{
+                justify-content: space-between;
+            } */
+        .top-left {
+            position: absolute;
+            left: 50px;
+            top: 0px;
+        }
+
+        .box {
+            width: 100vw;
+            height: 60px;
+            background-color: #fff;
+            position: absolute;
+            top: 0px;
+        }
+
+        .contenedor {
+            max-width: 1200px;
+        }
+
+        .logo-main {
+
+            /* width: auto;
+                height: auto; */
+            width: 400px;
+            height: 400px;
+        }
+
+        .sin-margen-top{
+            padding-bottom: 0;
+        }
+
+        .formato-link{
+            text-decoration: none;
+        }
+        .color-fondo-header {
+            background-color: #000000;
+        }
+    </style>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
