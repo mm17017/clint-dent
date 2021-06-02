@@ -95,7 +95,7 @@
     }
 
     .contenedor {
-        max-width: 1200px;
+        max-width: 120rem;
     }
 
     .logo-main {
@@ -121,7 +121,7 @@
     .cover-h1 {
         margin-top: 5rem;
         font-size: 10rem;
-        color: #2ca880;
+        color:  #2ca880;
         font-weight: 900;
         text-align: center;
 
@@ -142,7 +142,7 @@
         background-color: black;
         color: blanchedalmond;
         font-size: 1.2rem;
-
+        width:100vw;
         
     }
 
@@ -233,8 +233,8 @@
 
 </body>
 <footer class="footer">
-    <p>Calle 15 de Septiembre, Metapan, Santa Ana, El Salvador</p>
-    <p>Clint-Dent - Todos los derechos reservados&copy;</p>
+    <p class="flex-center">Calle 15 de Septiembre, Metapan, Santa Ana, El Salvador</p>
+    <p class="flex-center">Clint-Dent - Todos los derechos reservados&copy;</p>
 </footer>
 
 </html>

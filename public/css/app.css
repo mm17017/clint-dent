@@ -81,6 +81,7 @@ body {
 .imagen-header {
   background-image: url(../img/CLINT-DENT2.png);
   height: 45rem;
+  width: 100vw;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
@@ -2690,8 +2691,8 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #3490dc;
-  border-color: #3490dc;
+  background-color: #205072 !important;
+  border-color: #205072 !important;
 }
 
 .btn-primary:hover {
@@ -4989,9 +4990,9 @@ input[type=button].btn-block {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: #fff;
+  background-color: rgb(255, 255, 255)!important;
   background-clip: border-box;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  border: none;
   border-radius: 0.25rem;
 }
 
@@ -5052,8 +5053,12 @@ input[type=button].btn-block {
 .card-header {
   padding: 0.75rem 1.25rem;
   margin-bottom: 0;
-  background-color: rgba(0, 0, 0, 0.03);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+  background-color: #2ca880 !important;
+  border-bottom: none !important;
+  color: #fff;
+  text-align: center;
+  font-size: 1.5rem;
+  text-transform: uppercase;
 }
 
 .card-header:first-child {
