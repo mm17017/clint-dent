@@ -2011,13 +2011,82 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
       modal: 0,
       modificar: false,
       tituloModal: "",
-      detalles: []
+      detalles: [],
+      servicios: [],
+      cita: {
+        descripcion: "",
+        fecha_cita: "",
+        hora_cita: "",
+        serviciosSeleccionados: [],
+        user_id: 0,
+        estado_cita_id: 1,
+        jornada_id: 1
+      },
+      detalle: {}
     };
   },
   methods: {
@@ -2036,8 +2105,9 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 2:
                 res = _context.sent;
                 _this.detalles = res.data;
+                _this.cita.user_id = _this.detalles[0].user_id;
 
-              case 4:
+              case 5:
               case "end":
                 return _context.stop();
             }
@@ -2045,24 +2115,45 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee);
       }))();
     },
-    destroy: function destroy(id) {
+    guardar: function guardar(id) {
       var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
-        var res;
+        var res, _res;
+
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
             switch (_context2.prev = _context2.next) {
               case 0:
-                _context2.next = 2;
-                return axios["delete"]("detalle/" + id);
+                if (!_this2.modificar) {
+                  _context2.next = 8;
+                  break;
+                }
 
-              case 2:
+                console.log(_this2.detalle.id);
+                _context2.next = 4;
+                return axios.put('detalle/' + id, _this2.cita);
+
+              case 4:
                 res = _context2.sent;
+                console.log(res.data);
+                _context2.next = 12;
+                break;
+
+              case 8:
+                _context2.next = 10;
+                return axios.post("detalle", _this2.cita);
+
+              case 10:
+                _res = _context2.sent;
+                console.log(_res.data);
+
+              case 12:
+                _this2.cerrarModal();
 
                 _this2.index();
 
-              case 4:
+              case 14:
               case "end":
                 return _context2.stop();
             }
@@ -2070,14 +2161,102 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
         }, _callee2);
       }))();
     },
-    abrirModal: function abrirModal() {
-      this.modal = 1;
+    show: function show(id) {
+      var _this3 = this;
 
-      if (this.modificar) {
-        this.tituloModal = "Modificar";
-      } else {
-        this.tituloModal = "Reservar Cita";
-      }
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee3() {
+        var detalle;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee3$(_context3) {
+          while (1) {
+            switch (_context3.prev = _context3.next) {
+              case 0:
+                _context3.next = 2;
+                return axios.get("detalle/" + id);
+
+              case 2:
+                detalle = _context3.sent;
+                _this3.detalle = detalle.data[0];
+
+                _this3.abrirModal(_this3.detalle);
+
+              case 5:
+              case "end":
+                return _context3.stop();
+            }
+          }
+        }, _callee3);
+      }))();
+    },
+    destroy: function destroy(id) {
+      var _this4 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee4() {
+        var res;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee4$(_context4) {
+          while (1) {
+            switch (_context4.prev = _context4.next) {
+              case 0:
+                _context4.next = 2;
+                return axios["delete"]("detalle/" + id);
+
+              case 2:
+                res = _context4.sent;
+
+                _this4.index();
+
+              case 4:
+              case "end":
+                return _context4.stop();
+            }
+          }
+        }, _callee4);
+      }))();
+    },
+    abrirModal: function abrirModal() {
+      var _arguments = arguments,
+          _this5 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee5() {
+        var data, ser;
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee5$(_context5) {
+          while (1) {
+            switch (_context5.prev = _context5.next) {
+              case 0:
+                data = _arguments.length > 0 && _arguments[0] !== undefined ? _arguments[0] : {};
+                _this5.modal = 1;
+
+                if (!_this5.modificar) {
+                  _context5.next = 10;
+                  break;
+                }
+
+                _this5.tituloModal = "Modificar";
+                _this5.cita.descripcion = data.descripcion;
+                _this5.cita.fecha_cita = data.fecha_cita;
+                _this5.cita.hora_cita = data.hora_cita;
+                _this5.servicios = data.servicios;
+                _context5.next = 18;
+                break;
+
+              case 10:
+                _this5.tituloModal = "Reservar Cita";
+                _this5.cita.descripcion = "";
+                _this5.cita.fecha_cita = "";
+                _this5.cita.hora_cita = "";
+                _context5.next = 16;
+                return axios.get("servicios");
+
+              case 16:
+                ser = _context5.sent;
+                _this5.servicios = ser.data;
+
+              case 18:
+              case "end":
+                return _context5.stop();
+            }
+          }
+        }, _callee5);
+      }))();
     },
     cerrarModal: function cerrarModal() {
       this.modal = 0;
@@ -39163,7 +39342,7 @@ var render = function() {
     _c(
       "button",
       {
-        staticClass: "btn btn-primary",
+        staticClass: "btn btn-primary my-4",
         attrs: { type: "button" },
         on: {
           click: function($event) {
@@ -39199,7 +39378,138 @@ var render = function() {
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "modal-body" }, [
-            _vm._v("\n                    Modal body..\n                ")
+            _c("form", [
+              _c("label", { attrs: { for: "descripcion" } }, [
+                _vm._v("Descripcion")
+              ]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.cita.descripcion,
+                    expression: "cita.descripcion"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  id: "descripcion",
+                  placeholder: "Descripcion"
+                },
+                domProps: { value: _vm.cita.descripcion },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.cita, "descripcion", $event.target.value)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "fecha" } }, [_vm._v("Fecha")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.cita.fecha_cita,
+                    expression: "cita.fecha_cita"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { type: "date", id: "fecha" },
+                domProps: { value: _vm.cita.fecha_cita },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.cita, "fecha_cita", $event.target.value)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "hora" } }, [_vm._v("Hora")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.cita.hora_cita,
+                    expression: "cita.hora_cita"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { type: "time", step: "1", id: "hora" },
+                domProps: { value: _vm.cita.hora_cita },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.cita, "hora_cita", $event.target.value)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("label", { attrs: { for: "servicios" } }, [
+                _vm._v("Servicios")
+              ]),
+              _vm._v(" "),
+              _c(
+                "select",
+                {
+                  directives: [
+                    {
+                      name: "model",
+                      rawName: "v-model",
+                      value: _vm.cita.serviciosSeleccionados,
+                      expression: "cita.serviciosSeleccionados"
+                    }
+                  ],
+                  staticClass: "custom-select",
+                  attrs: { multiple: "", id: "servicios" },
+                  on: {
+                    change: function($event) {
+                      var $$selectedVal = Array.prototype.filter
+                        .call($event.target.options, function(o) {
+                          return o.selected
+                        })
+                        .map(function(o) {
+                          var val = "_value" in o ? o._value : o.value
+                          return val
+                        })
+                      _vm.$set(
+                        _vm.cita,
+                        "serviciosSeleccionados",
+                        $event.target.multiple
+                          ? $$selectedVal
+                          : $$selectedVal[0]
+                      )
+                    }
+                  }
+                },
+                _vm._l(_vm.servicios, function(servicio) {
+                  return _c(
+                    "option",
+                    { key: servicio.id, domProps: { value: servicio.id } },
+                    [
+                      _vm._v(
+                        _vm._s(servicio.id) +
+                          " -\n                                " +
+                          _vm._s(servicio.descripcion)
+                      )
+                    ]
+                  )
+                }),
+                0
+              )
+            ])
           ]),
           _vm._v(" "),
           _c("div", { staticClass: "modal-footer" }, [
@@ -39225,7 +39535,12 @@ var render = function() {
               "button",
               {
                 staticClass: "btn btn-success",
-                attrs: { type: "button", "data-dismiss": "modal" }
+                attrs: { type: "button", "data-dismiss": "modal" },
+                on: {
+                  click: function($event) {
+                    return _vm.guardar(_vm.detalle.id)
+                  }
+                }
               },
               [
                 _vm._v(
@@ -39237,10 +39552,6 @@ var render = function() {
         ])
       ])
     ]),
-    _vm._v(" "),
-    _c("br"),
-    _vm._v(" "),
-    _c("br"),
     _vm._v(" "),
     _c("table", { staticClass: "table table-striped" }, [
       _vm._m(0),
@@ -39263,11 +39574,15 @@ var render = function() {
                   on: {
                     click: function($event) {
                       _vm.modificar = true
-                      _vm.abrirModal(detalle.id)
+                      _vm.show(detalle.id)
                     }
                   }
                 },
-                [_vm._v("Editar")]
+                [
+                  _vm._v(
+                    "\n                        Editar\n                    "
+                  )
+                ]
               )
             ]),
             _vm._v(" "),
@@ -51674,8 +51989,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\carlo\Desktop\clint-dent\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\Users\carlo\Desktop\clint-dent\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! D:\laragon\www\clint-dent\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! D:\laragon\www\clint-dent\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

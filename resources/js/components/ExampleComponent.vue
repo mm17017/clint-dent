@@ -3,7 +3,14 @@
         <h1 class="text-center">Detalle Cita</h1>
         <br />
         <!-- Button to Open the Modal -->
-        <button @click=" modificar = false; abrirModal();" type="button" class="btn btn-primary">
+        <button
+            @click="
+                modificar = false;
+                abrirModal();
+            "
+            type="button"
+            class="btn btn-primary my-4"
+        >
             Agregar
         </button>
 
@@ -26,7 +33,49 @@
 
                     <!-- Modal body -->
                     <div class="modal-body">
-                        Modal body..
+                        <form>
+                            <label for="descripcion">Descripcion</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="descripcion"
+                                placeholder="Descripcion"
+                                v-model="cita.descripcion"
+                            />
+
+                            <label for="fecha">Fecha</label>
+                            <input
+                                type="date"
+                                class="form-control"
+                                id="fecha"
+                                v-model="cita.fecha_cita"
+                            />
+
+                            <label for="hora">Hora</label>
+                            <input
+                                type="time"
+                                step="1"
+                                class="form-control"
+                                id="hora"
+                                v-model="cita.hora_cita"
+                            />
+
+                            <label for="servicios">Servicios</label>
+                            <select
+                                class="custom-select"
+                                multiple
+                                id="servicios"
+                                v-model="cita.serviciosSeleccionados"
+                            >
+                                <option
+                                    v-for="servicio in servicios"
+                                    :value="servicio.id"
+                                    :key="servicio.id"
+                                    >{{ servicio.id }} -
+                                    {{ servicio.descripcion }}</option
+                                >
+                            </select>
+                        </form>
                     </div>
 
                     <!-- Modal footer -->
@@ -40,6 +89,7 @@
                             Cancelar
                         </button>
                         <button
+                            @click="guardar(detalle.id)"
                             type="button"
                             class="btn btn-success"
                             data-dismiss="modal"
@@ -50,8 +100,6 @@
                 </div>
             </div>
         </div>
-        <br />
-        <br />
         <table class="table table-striped">
             <thead class="thead-dark">
                 <tr>
@@ -66,7 +114,17 @@
                     <th scope="row">{{ detalle.id }}</th>
                     <td>{{ detalle.fecha_cita }}</td>
                     <td>{{ detalle.hora_cita }}</td>
-                    <td><button @click=" modificar = true; abrirModal(detalle.id);" class="btn btn-warning">Editar</button></td>
+                    <td>
+                        <button
+                            @click="
+                                modificar = true;
+                                show(detalle.id);
+                            "
+                            class="btn btn-warning"
+                        >
+                            Editar
+                        </button>
+                    </td>
                     <td>
                         <button
                             class="btn btn-danger"
@@ -88,7 +146,18 @@ export default {
             modal: 0,
             modificar: false,
             tituloModal: "",
-            detalles: []
+            detalles: [],
+            servicios: [],
+            cita: {
+                descripcion: "",
+                fecha_cita: "",
+                hora_cita: "",
+                serviciosSeleccionados: [],
+                user_id: 0,
+                estado_cita_id: 1,
+                jornada_id: 1
+            },
+            detalle: {}
         };
     },
 
@@ -96,6 +165,26 @@ export default {
         async index() {
             const res = await axios.get("detalle");
             this.detalles = res.data;
+            this.cita.user_id = this.detalles[0].user_id;
+        },
+
+        async guardar(id) {
+            if (this.modificar) {
+                console.log(this.detalle.id);
+                const res = await axios.put('detalle/'+id, this.cita);
+                console.log(res.data);
+            } else {                
+                const res = await axios.post("detalle", this.cita);  
+                console.log(res.data);              
+            }
+            this.cerrarModal();
+            this.index();
+        },
+
+        async show(id) {
+            const detalle = await axios.get("detalle/" + id);
+            this.detalle = detalle.data[0];            
+            this.abrirModal(this.detalle);
         },
 
         async destroy(id) {
@@ -103,12 +192,21 @@ export default {
             this.index();
         },
 
-        abrirModal() {
+        async abrirModal(data = {}) {
             this.modal = 1;
-            if(this.modificar){
+            if (this.modificar) {
                 this.tituloModal = "Modificar";
-            }else{
+                this.cita.descripcion = data.descripcion;
+                this.cita.fecha_cita = data.fecha_cita;
+                this.cita.hora_cita = data.hora_cita;
+                this.servicios = data.servicios;
+            } else {
                 this.tituloModal = "Reservar Cita";
+                this.cita.descripcion = "";
+                this.cita.fecha_cita = "";
+                this.cita.hora_cita = "";
+                const ser = await axios.get("servicios");
+                this.servicios = ser.data;
             }
         },
 

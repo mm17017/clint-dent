@@ -24,7 +24,7 @@ class DetalleCitaController extends Controller
     public function index()
     {
         // $servicios = Servicio::get();
-        return detalle_cita::where('user_id', Auth::user()->id)->get();;
+        return detalle_cita::where('user_id', Auth::user()->id)->get();
     }
 
     /**
@@ -36,6 +36,17 @@ class DetalleCitaController extends Controller
     public function store(Request $request)
     {
         $detalle = new detalle_cita;
+        $detalle->descripcion = $request->descripcion;                
+        $detalle->fecha_cita = $request->fecha_cita;                
+        $detalle->hora_cita = $request->hora_cita;                
+        $detalle->user_id = $request->user_id;                
+        $detalle->estado_cita_id = $request->estado_cita_id;                
+        $detalle->jornada_id = $request->jornada_id;                
+        $detalle->jornada_id = $request->jornada_id;           
+        $detalle->save();        
+        foreach ($request->serviciosSeleccionados as $servicio) {
+            $detalle->servicios()->attach($servicio);             
+        }                   
     }
 
     /**
@@ -60,7 +71,16 @@ class DetalleCitaController extends Controller
      */
     public function update(Request $request, detalle_cita $detalle)
     {
-        //
+        // return $detalle;        
+        $detalle->descripcion = $request->descripcion;                
+        $detalle->fecha_cita = $request->fecha_cita;                
+        $detalle->hora_cita = $request->hora_cita;                
+        $detalle->user_id = $request->user_id;                
+        $detalle->estado_cita_id = $request->estado_cita_id;                
+        $detalle->jornada_id = $request->jornada_id;                
+        $detalle->jornada_id = $request->jornada_id;
+        $detalle->save();
+        $detalle->servicios()->sync($request->serviciosSeleccionados);
     }
 
     /**
