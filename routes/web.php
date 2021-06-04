@@ -28,3 +28,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::apiResource('/detalle', 'DetalleCitaController');
+
+Route::get('/servicios', 'DetalleCitaController@getServicios')->name('servicios');
