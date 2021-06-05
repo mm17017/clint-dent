@@ -6723,7 +6723,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, "\n.mostrar {\r\n    display: list-item;\r\n    opacity: 1;\r\n    background: rgba(44, 38, 75, 0.489);\n}\r\n", ""]);
+exports.push([module.i, "\n.mostrar {\n    display: list-item;\n    opacity: 1;\n    background: rgba(44, 38, 75, 0.489);\n}\n", ""]);
 
 // exports
 
@@ -51989,8 +51989,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\laragon\www\clint-dent\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! D:\laragon\www\clint-dent\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/cmargueiz/laravel/clint-dent/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/cmargueiz/laravel/clint-dent/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
