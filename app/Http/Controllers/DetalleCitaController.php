@@ -46,7 +46,12 @@ class DetalleCitaController extends Controller
         $detalle->save();        
         foreach ($request->serviciosSeleccionados as $servicio) {
             $detalle->servicios()->attach($servicio);             
-        }                   
+        }
+        return response()->json([
+            'res'=>true,
+            'messagge'=>'Registro creado correctamente',
+            'data'=>$detalle
+        ],status:201);
     }
 
     /**
