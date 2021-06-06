@@ -30,5 +30,6 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::apiResource('/detalle', 'DetalleCitaController');
+Route::apiResource('/estadocita','EstadoCitaController');
 
 Route::get('/servicios', 'DetalleCitaController@getServicios')->name('servicios');
