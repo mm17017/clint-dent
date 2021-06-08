@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
 
 <!-- Styles -->
 <style>
@@ -145,7 +148,6 @@
         width:100vw;
         
     }
-
     .contenedor {
         max-width: 120rem;
         width: 90%;
@@ -195,7 +197,8 @@
                 </div>
                 <div class="top-right links">
                     @auth
-                    <a href="{{ url('/home') }}">Home</a>
+                   <a href="{{ url('/home') }}">Ir a citas</a>
+                   
                     @else
                     <a href="{{ route('login') }}">Iniciar Sesión</a>
 
