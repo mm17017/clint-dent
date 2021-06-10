@@ -40,7 +40,7 @@ class DetalleCitaController extends Controller
         $detalle->descripcion = $request->descripcion;                
         $detalle->fecha_cita = $request->fecha_cita;                
         $detalle->hora_cita = $request->hora_cita;                
-        $detalle->user_id = $request->user_id;                
+        $detalle->user_id = Auth::user()->id;                
         $detalle->estado_cita_id = $request->estado_cita_id;                
         $detalle->jornada_id = $request->jornada_id;                
         $detalle->jornada_id = $request->jornada_id;           
