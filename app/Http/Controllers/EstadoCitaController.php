@@ -66,6 +66,8 @@ class EstadoCitaController extends Controller
     public function update(Request $request,Estado_cita $estado_Cita)
     {
         $input=$request->all();
+        // dd($estado_Cita);
+        dd($input);
         $estado_Cita->update($input);
         return response()->json([
             'res'=>true,
