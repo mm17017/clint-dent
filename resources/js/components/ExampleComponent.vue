@@ -15,7 +15,7 @@
         </button>
 
         <!-- The Modal -->
-        <div class="modal" :class="{ mostrar: modal }">
+        <div class="modal" :class="{ mostrar : modal==true }">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <!-- Modal Header -->
@@ -25,8 +25,7 @@
                             type="button"
                             @click="cerrarModal()"
                             class="close"
-                            data-dismiss="modal"
-                        >
+                            data-dismiss="modal">
                             &times;
                         </button>
                     </div>
@@ -143,7 +142,7 @@
 export default {
     data() {
         return {
-            modal: 0,
+            modal: false,
             modificar: false,
             tituloModal: "",
             detalles: [],
@@ -163,7 +162,7 @@ export default {
 
     methods: {
         async index() {
-            const res = await axios.get("detalle");
+            const res = await axios.get("detalle/");
             this.detalles = res.data;
             this.cita.user_id = this.detalles[0].user_id;
         },
@@ -173,9 +172,9 @@ export default {
                 console.log(this.detalle.id);
                 const res = await axios.put('detalle/'+id, this.cita);
                 console.log(res.data);
-            } else {                
-                const res = await axios.post("detalle", this.cita);  
-                console.log(res.data);              
+            } else {
+                const res = await axios.post("detalle", this.cita);
+                console.log(res.data);
             }
             this.cerrarModal();
             this.index();
@@ -183,7 +182,7 @@ export default {
 
         async show(id) {
             const detalle = await axios.get("detalle/" + id);
-            this.detalle = detalle.data[0];            
+            this.detalle = detalle.data[0];
             this.abrirModal(this.detalle);
         },
 
@@ -192,8 +191,9 @@ export default {
             this.index();
         },
 
-        async abrirModal(data = {}) {
-            this.modal = 1;
+        abrirModal(data = {}) {
+            
+            this.modal = true;
             if (this.modificar) {
                 this.tituloModal = "Modificar";
                 this.cita.descripcion = data.descripcion;
@@ -205,23 +205,30 @@ export default {
                 this.cita.descripcion = "";
                 this.cita.fecha_cita = "";
                 this.cita.hora_cita = "";
-                const ser = await axios.get("servicios");
-                this.servicios = ser.data;
+                console.log('holiss')
+                axios.get('/servicios').then((res)=>{
+                this.servicios=res.data
+                })
+
             }
         },
 
         cerrarModal() {
-            this.modal = 0;
+            this.modal = false;
         }
     },
 
     created() {
-        this.index();
+        
+        axios.get('/detalle').then((res)=>{
+            this.detalles=res.data
+        
+        })
     }
 };
 </script>
 
-<style>
+<style scoped>
 .mostrar {
     display: list-item;
     opacity: 1;

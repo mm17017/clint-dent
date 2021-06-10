@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\detalle_cita;
+use App\Models\Detalle_cita;
 use App\Models\Servicio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -12,7 +12,7 @@ class DetalleCitaController extends Controller
 
     public function __construct()
     {
-        $this->middleware('auth');
+       // $this->middleware('auth');
     }
 
 
@@ -24,7 +24,8 @@ class DetalleCitaController extends Controller
     public function index()
     {
         // $servicios = Servicio::get();
-        return detalle_cita::where('user_id', Auth::user()->id)->get();
+        //return Detalle_cita::where('user_id', Auth::user()->id())->get();
+        return Detalle_cita::all();
     }
 
     /**
@@ -35,7 +36,7 @@ class DetalleCitaController extends Controller
      */
     public function store(Request $request)
     {
-        $detalle = new detalle_cita;
+        $detalle = new Detalle_cita;
         $detalle->descripcion = $request->descripcion;                
         $detalle->fecha_cita = $request->fecha_cita;                
         $detalle->hora_cita = $request->hora_cita;                
@@ -60,7 +61,7 @@ class DetalleCitaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(detalle_cita $detalle)
+    public function show(Detalle_cita $detalle)
     {
         if ($detalle->user_id == Auth::user()->id) {
             return ([$detalle, $detalle->servicios]);
@@ -74,7 +75,7 @@ class DetalleCitaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, detalle_cita $detalle)
+    public function update(Request $request, Detalle_cita $detalle)
     {
         // return $detalle;        
         $detalle->descripcion = $request->descripcion;                
@@ -94,7 +95,7 @@ class DetalleCitaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(detalle_cita $detalle)
+    public function destroy(Detalle_cita $detalle)
     {
         if (Auth::user()->id == $detalle->user_id) {
             $detalle->delete();

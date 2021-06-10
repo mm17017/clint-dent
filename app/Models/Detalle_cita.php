@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 
 
-class detalle_cita extends Model
+class Detalle_cita extends Model
 {
     protected $table = 'detalle_citas';
     
