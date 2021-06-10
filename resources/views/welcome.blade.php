@@ -209,14 +209,14 @@
                 </div>
                 <div class="content">
                     <h1 class="cover-h1">C L I N T - D E N T</h1>
-                    <h3 class="cover-h3">Siempre lo mejor para tú salud</h3>
+                    <h3 class="cover-h3">Siempre lo mejor para tu salud</h3>
                 </div>
             </div>
             @endif
     </header>
 
     <div class="contenedor">
-        <h1 class="content sobre-nosotros-titulo-h1">Sobre Nosotros</h1>
+        <h1 class="content sobre-nosotros-titulo-h1">¿Quiénes Somos?</h1>
 
         <div class="sobre-nosotros">
             <div class="imagen-nosotros"></div>
@@ -238,6 +238,7 @@
 <footer class="footer">
     <p class="flex-center">Calle 15 de Septiembre, Metapan, Santa Ana, El Salvador</p>
     <p class="flex-center">Clint-Dent - Todos los derechos reservados&copy;</p>
+    <p class="flex-center">Tel: 24402566</p>
 </footer>
 
 </html>
