@@ -7,7 +7,7 @@
 <style>
         html,
         body {
-            background-color: #cff4d2 !important;
+            background-color: #cff4d2 ;
             font-family: 'Nunito', sans-serif;
             font-weight: 200;
             height: 100vh;
