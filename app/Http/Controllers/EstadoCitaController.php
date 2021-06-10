@@ -63,16 +63,16 @@ class EstadoCitaController extends Controller
      * @param  \App\Models\Estado_Cita  $estado_Cita
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,Estado_cita $estado_Cita)
+    public function update(Request $request, $id)
     {
         $input=$request->all();
-        // dd($estado_Cita);
-        dd($input);
-        $estado_Cita->update($input);
+        $estadoCita=Estado_cita::findOrFail($id);
+        $estadoCita->fill($input);
+        $estadoCita->save();
         return response()->json([
             'res'=>true,
             'message'=>'Registro actualizado correctamente',
-            'estado_Cita'=>$input
+            'estado_cita'=>$input
         ],status:200);
     }
 
