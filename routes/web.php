@@ -29,7 +29,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::apiResource('/detalle', 'DetalleCitaController');
-Route::apiResource('/estadocita','EstadoCitaController');
+// Route::group(['middleware'=>'auth'],function (){
+    Route::apiResource('/detalle', 'DetalleCitaController');//->middleware('auth');
+    Route::apiResource('/estadocita','EstadoCitaController');
+    Route::get('/servicios', 'DetalleCitaController@getServicios')->name('servicios');
+// });
 
-Route::get('/servicios', 'DetalleCitaController@getServicios')->name('servicios');

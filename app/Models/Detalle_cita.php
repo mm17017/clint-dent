@@ -8,6 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Detalle_cita extends Model
 {
     protected $table = 'detalle_citas';
+
+    protected $fillable = ['descripcion','fecha_cita','user_id','estado_cita_id','jornada_id'];
+    protected $hidden = ['created_at','updated_at'];
     
     public function usuarios()
     {

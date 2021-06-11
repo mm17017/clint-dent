@@ -26,20 +26,24 @@ class DetalleCitaRequest extends FormRequest
     public function rules()
     {
         $yesterday = date('Y-m-d', strtotime('-1 days')); 
+
         return [
-            'S_Detalle'=>'required|max:50',
-            'D_Fecha'=>'required|after:'.$yesterday,
-            'T_Hora'=>'required'
+            'descripcion'=>'required|max:50',
+            'fecha_cita'=>'required|after_or_equal:'.$yesterday,
+            'user_id'=>'required|integer',
+            'estado_cita_id'=>'required|integer',
+            'jornada_id'=>'required|integer'
         ];
     }
     public function messages()
     {
         return[
-            'S_Detalle.required' => 'La descripción es obligatoria',
-            'S_Detalle.max' => 'Deben ser menos de 50 caracteres',
-            'D_Fecha.required' => 'La Fecha es obligatoria',
-            'D_Fecha.after' => 'Fecha invalida coloque una fecha igual o posterior a hoy',
-            'T_Hora.required' => 'La hora es obligatoria'
+            'descripcion.required' => 'La descripción es obligatoria',
+            'descripcion.max' => 'Deben ser menos de 50 caracteres',
+            'fecha_cita.required' => 'La Fecha es obligatoria',
+            'user_id.required'=>'Debe ingresar el codigo de usuario',
+            'user_id.integer'=>'Debe ingresar un valor',
+            'fecha_cita.after_or_equal' => 'Fecha invalida coloque una fecha igual o posterior a hoy',
         ];
     }
 }
