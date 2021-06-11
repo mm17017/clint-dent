@@ -87,14 +87,20 @@ body {
   text-align: left;
   background-color: black;
 }
-
+.formulario-input{
+  border-radius: 5px;
+  background-color: transparent;
+}
+.color-blanco{
+  color: white;
+}
 .sombra{
   -webkit-box-shadow: 0px 5px 15px 0px rgba(112,112,112,1);
   -moz-box-shadow: 0px 5px 15px 0px rgba(112,112,112,1);
   box-shadow: 0px 5px 15px 0px rgba(112,112,112,1);
   background-color: var(--blanco);
   padding: 2rem;
-  border-radius: 1rem;
+  border-radius: 1.5rem;
 }
 
 //PARA REGISTRO Y LOGIN ESTILOS
@@ -106,8 +112,16 @@ background: linear-gradient(to bottom, #0f3443, #34e89e); /* W3C, IE 10+/ Edge, 
 
 }
 
+.gradiente-form{
+  background: #a8c0ff;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to bottom, #11998e, #38ef7d);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to bottom, #11998e, #38ef7d); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
+}
 
+.padding-bottom{
+  padding-bottom: 1rem;
+}
 .color-fondo-header-login{
   background-color: black;
   //justify-content: space-between;
@@ -2333,13 +2347,13 @@ pre code {
   height: calc(1.6em + 0.75rem + 2px);
   padding: 0.375rem 0.75rem;
   font-size: 0.9rem;
-  font-weight: 400;
+  font-weight: 500;
   line-height: 1.6;
-  color: #495057;
-  background-color: #fff;
+  color: #ffffff;
+  background-color: transparent;
   background-clip: padding-box;
   border: 1px solid #ced4da;
-  border-radius: 0.25rem;
+  border-radius: 0.75rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
@@ -2355,36 +2369,36 @@ pre code {
 }
 
 .form-control:-moz-focusring {
-  color: transparent;
+  color: white;
   text-shadow: 0 0 0 #495057;
 }
 
 .form-control:focus {
-  color: #495057;
-  background-color: #fff;
+  color: white;
+  background-color: transparent;
   border-color: #a1cbef;
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(52, 144, 220, 0.25);
 }
 
 .form-control::-moz-placeholder {
-  color: #6c757d;
+  color: white;
   opacity: 1;
 }
 
 .form-control:-ms-input-placeholder {
-  color: #6c757d;
+  color: white;
   opacity: 1;
 }
 
 .form-control::placeholder {
-  color: #6c757d;
+  color: white;
   opacity: 1;
 }
 
 .form-control:disabled,
 .form-control[readonly] {
-  background-color: #e9ecef;
+  background-color: transparent;
   opacity: 1;
 }
 
@@ -2398,7 +2412,7 @@ input[type=month].form-control {
 }
 
 select.form-control:focus::-ms-value {
-  color: #495057;
+  color: white;
   background-color: #fff;
 }
 
