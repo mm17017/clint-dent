@@ -199,6 +199,7 @@ export default {
                 this.cita.descripcion = data.descripcion;
                 this.cita.fecha_cita = data.fecha_cita;
                 this.cita.hora_cita = data.hora_cita;
+                this.cita.user_id = data.user_id;
                 this.servicios = data.servicios;
             } else {
                 this.tituloModal = "Reservar Cita";
