@@ -12,6 +12,16 @@ class Tipo_jornadaSeeder extends Seeder
      */
     public function run()
     {
-        factory(Tipo_jornada::class, 5)->create();
+        Tipo_jornada::create([
+            'nombre_tipo'=>'Matutino',
+            'descripcion_tipo'=>'Turno de mañana',
+        ]);
+
+        Tipo_jornada::create([
+            'nombre_tipo'=>'Vespertino',
+            'descripcion_tipo'=>'Turno de tarde',
+        ]);
+
+        // factory(Tipo_jornada::class, 5)->create();
     }
 }
