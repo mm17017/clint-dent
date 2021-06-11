@@ -16,8 +16,7 @@ class CreateDetalleCitasTable extends Migration
         Schema::create('detalle_citas', function (Blueprint $table) {
             $table->id();
             $table->string('descripcion', 50)->nullable();
-            $table->date('fecha_cita');
-            $table->time('hora_cita');
+            $table->date('fecha_cita');            
             $table->unsignedBigInteger('user_id');            
             $table->unsignedBigInteger('estado_cita_id');
             $table->unsignedBigInteger('jornada_id');
