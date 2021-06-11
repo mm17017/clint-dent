@@ -11,7 +11,7 @@
     body {
         background-color: #fff;
         color: #205072;
-        font-family: 'Nunito', sans-serif;
+        font-family: 'Arial', sans-serif;
         font-weight: 200;
         height: 100vh;
         margin: 0;
@@ -221,14 +221,15 @@
         <div class="sobre-nosotros">
             <div class="imagen-nosotros"></div>
             <div class="sobre-nosotros--texto">
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum ullam alias voluptatem voluptatibus
-                    omnis quas expedita sunt illo incidunt, porro nisi corrupti ipsum architecto mollitia quisquam perspiciatis
-                    maiores temporibus voluptates.
-                </p>
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eum ullam alias voluptatem voluptatibus
-                    omnis quas expedita sunt illo incidunt, porro nisi corrupti ipsum architecto mollitia quisquam perspiciatis
-                    maiores temporibus voluptates.
-                </p>
+                <p>Somos un equipo de Odontólogos Profesionales especializados en la Alta Estética Dental.Nuestra Clínica cuenta con la más sofisticada tecnología que nos permite ofrecer servicios de vanguardia. Nos caracterizamos por nuestra experiencia, calidad y profesionalismo.Nos especializamos en varias ramas relacionadas a la ortodoncia.</p>
+                <p></p>
+                <p>Utilizamos materiales de la más alta calidad; contamos con una área de esterilización,teniendo así un mejor control de infecciones y utilizamos material descartable. Nuestro trabajo se realiza con un proceso de diagnóstico exhaustivo, cumpliendo con los más altos estándares exigidos por la American Association of Orthodontists (AAO).</p>
+                <p></p>
+                <p>Realizamos un procedimiento de diagnóstico computarizado que actualizamos anualmente, logrando mayor rapidez y exactitud; permitiendo mostrar los cambios esperados del tratamiento antes de ser realizados, y con ello mostrar como lucirán tus dientes con los diferentes tipos de aparatos antes de ser colocados y muchas ventajas adicionales.</p>
+                <p></p>
+                <p>Para nosotros lo más importante es el cuidado del paciente en forma integral.</p>
+                
+                
             </div>
         </div>
     </div>
@@ -236,9 +237,12 @@
 
 </body>
 <footer class="footer">
-    <p class="flex-center">Calle 15 de Septiembre, Metapan, Santa Ana, El Salvador</p>
+    <p class="flex-center">Calle 15 de Septiembre, local #22, Metapan, Santa Ana, El Salvador</p>
+   
+    <p class="flex-center">Tel: 2440-6578</p>
+    <p class="flex-center">Email: info@clintdent.com</p>
     <p class="flex-center">Clint-Dent - Todos los derechos reservados&copy;</p>
-    <p class="flex-center">Tel: 24402566</p>
+    
 </footer>
 
 </html>
