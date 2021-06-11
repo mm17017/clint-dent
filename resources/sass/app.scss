@@ -209,6 +209,7 @@ background: linear-gradient(to bottom, #11998e, #38ef7d); /* W3C, IE 10+/ Edge, 
 
 .contenedor {
     max-width: 120rem;
+    
 }
 
 .logo-main {
@@ -2867,7 +2868,7 @@ textarea.form-control.is-invalid {
   padding: 0.375rem 0.75rem;
   font-size: 0.9rem;
   line-height: 1.6;
-  border-radius: 0.25rem;
+  border-radius: 0.60rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
@@ -2878,7 +2879,7 @@ textarea.form-control.is-invalid {
 }
 
 .btn:hover {
-  color: #212529;
+  color: green;
   text-decoration: none;
 }
 
@@ -2904,14 +2905,14 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #205072 !important;
+  background-color: #015d67 !important;
   border-color: #205072 !important;
 }
 
 .btn-primary:hover {
   color: #fff;
-  background-color: #227dc7;
-  border-color: #2176bd;
+  background-color: #87e4db !important;
+  border-color: #87e4db !important;
 }
 
 .btn-primary:focus,
