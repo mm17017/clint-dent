@@ -21,9 +21,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
      <!-- Styles -->
-     <style>
-       
-    </style>
+
 </head>
 <body class="gradiente">
     <div id="app">
@@ -83,4 +81,5 @@
         </main>
     </div>
 </body>
+
 </html>

@@ -1,26 +1,22 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-<!-- CSS only -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-
-
-<!-- Styles -->
-
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>CLINT-DENT</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="shortcut icon" href="../img/favicon.ico">
-
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200;600&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
     <header class="imagen-header padding-bottom">
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
@@ -48,11 +44,77 @@
             @endif
     </header>
 
+
+
+
     <div class="contenedor sombra">
+
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="{{asset('images/c1.jpg')}}" class="d-block w-100 h-75" alt="1.jpg">
+                </div>
+                
+                <div class="carousel-item ">
+                    <img src="{{asset('images/c2.jpg')}}" class="d-block w-100 h-75" alt="2.jpg">
+                </div>
+
+                <div class="carousel-item ">
+                    <img src="{{asset('images/c3.jpg')}}" class="d-block w-100 h-75" alt="3.jpg">
+                </div>
+
+                <div class="carousel-item ">
+                    <img src="{{asset('images/c4.jpg')}}" class="d-block w-100 h-75" alt="4.jpg">
+                </div>
+
+                <div class="carousel-item ">
+                    <img src="{{asset('images/c5.jpg')}}" class="d-block w-100 h-75" alt="5.jpg">
+                </div>
+
+                <div class="carousel-item ">
+                    <img src="{{asset('images/c6.jpg')}}" class="d-block w-100 h-75" alt="6.jpg">
+                </div>
+
+                <div class="carousel-item ">
+                    <img src="{{asset('images/c7.png')}}" class="d-block w-100 h-75" alt="7.png">
+                </div>
+
+                <div class="carousel-item ">
+                    <img src="{{asset('images/c9.jpg')}}" class="d-block w-100 h-75" alt="9.jpg">
+                </div>
+
+                <div class="carousel-item ">
+                    <img src="{{asset('images/c11.jpg')}}" class="d-block w-100 h-75" alt="11.jpg">
+                </div>
+
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
         <h1 class="content sobre-nosotros-titulo-h1">¿Quiénes Somos?</h1>
 
-        <div class="sobre-nosotros">
-            <div class="imagen-nosotros"></div>
+        <div class="">
+
+
             <div class="sobre-nosotros--texto">
                 <p>Somos un equipo de Odontólogos Profesionales especializados en la Alta Estética Dental. Nuestra Clínica cuenta con la más sofisticada tecnología que nos permite ofrecer servicios de vanguardia. Nos caracterizamos por nuestra experiencia, calidad y profesionalismo.Nos especializamos en varias ramas relacionadas a la ortodoncia.</p>
                 <p></p>
