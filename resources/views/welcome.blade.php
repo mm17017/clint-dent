@@ -49,42 +49,42 @@
 
     <div class="contenedor sombra">
 
-        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
+        <div id="carouselExampleControls" class="carousel slide " data-bs-ride="carousel">
+            <div class="carousel-inner img-fluid">
                 <div class="carousel-item active">
-                    <img src="{{asset('images/c1.jpg')}}" class="d-block w-100 h-75" alt="1.jpg">
+                    <img src="{{asset('images/c1.jpg')}}" class="d-block img-fluid" alt="1.jpg">
                 </div>
                 
-                <div class="carousel-item ">
-                    <img src="{{asset('images/c2.jpg')}}" class="d-block w-100 h-75" alt="2.jpg">
+                <div class="carousel-item">
+                    <img src="{{asset('images/c2.jpg')}}" class="d-block img-fluid" alt="2.jpg">
                 </div>
 
                 <div class="carousel-item ">
-                    <img src="{{asset('images/c3.jpg')}}" class="d-block w-100 h-75" alt="3.jpg">
+                    <img src="{{asset('images/c3.jpg')}}" class="d-block img-fluid" alt="3.jpg">
                 </div>
 
                 <div class="carousel-item ">
-                    <img src="{{asset('images/c4.jpg')}}" class="d-block w-100 h-75" alt="4.jpg">
+                    <img src="{{asset('images/c4.jpg')}}" class="d-block img-fluid" alt="4.jpg">
                 </div>
 
                 <div class="carousel-item ">
-                    <img src="{{asset('images/c5.jpg')}}" class="d-block w-100 h-75" alt="5.jpg">
+                    <img src="{{asset('images/c5.jpg')}}" class="d-block img-fluid" alt="5.jpg">
                 </div>
 
                 <div class="carousel-item ">
-                    <img src="{{asset('images/c6.jpg')}}" class="d-block w-100 h-75" alt="6.jpg">
+                    <img src="{{asset('images/c6.jpg')}}" class="d-block img-fluid" alt="6.jpg">
                 </div>
 
                 <div class="carousel-item ">
-                    <img src="{{asset('images/c7.png')}}" class="d-block w-100 h-75" alt="7.png">
+                    <img src="{{asset('images/c7.png')}}" class="d-block img-fluid" alt="7.png">
                 </div>
 
                 <div class="carousel-item ">
-                    <img src="{{asset('images/c9.jpg')}}" class="d-block w-100 h-75" alt="9.jpg">
+                    <img src="{{asset('images/c9.jpg')}}" class="d-block img-fluid" alt="9.jpg">
                 </div>
 
                 <div class="carousel-item ">
-                    <img src="{{asset('images/c11.jpg')}}" class="d-block w-100 h-75" alt="11.jpg">
+                    <img src="{{asset('images/c11.jpg')}}" class="d-block img-fluid" alt="11.jpg">
                 </div>
 
             </div>
