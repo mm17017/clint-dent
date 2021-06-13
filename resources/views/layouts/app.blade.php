@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -20,9 +21,10 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-     <!-- Styles -->
+    <!-- Styles -->
 
 </head>
+
 <body class="gradiente">
     <div id="app">
         <nav class="navbar navbar-expand-md shadow-sm links">
@@ -44,32 +46,31 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                         @guest
-                            <li class="nav-item links">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Iniciar sesión') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item links">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
-                                </li>
-                            @endif
+                        <li class="nav-item links">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Iniciar sesión') }}</a>
+                        </li>
+                        @if (Route::has('register'))
+                        <li class="nav-item links">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Registrarse') }}</a>
+                        </li>
+                        @endif
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link links dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name_usuario }}
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link links dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ Auth::user()->name_usuario }}
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item links" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    {{ __('Salir') }}
                                 </a>
 
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item links" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Salir') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
+                            </div>
+                        </li>
                         @endguest
                     </ul>
                 </div>
@@ -81,5 +82,16 @@
         </main>
     </div>
 </body>
+
+<footer class="footer">
+    <div class="flex-footer">
+        <div class="parrafo">
+            <p class="">Calle 15 de Septiembre, local #22, Metapan, Santa Ana, El Salvador</p><br>
+            <p class="">Tel: 2440-6578</p><br>
+            <p class="">Email: info@clintdent.com</p>
+        </div>
+        <p class="">Clint-Dent - Todos los derechos reservados&copy;</p>
+    </div>
+</footer>
 
 </html>

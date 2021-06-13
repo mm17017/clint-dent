@@ -11156,10 +11156,21 @@ body {
 }
 
 .footer {
+  padding: 3rem 0;
   background-color: black;
-  color: blanchedalmond;
-  font-size: 1.2rem;
-  width: 100vw;
+  padding-bottom: 3rem;
+}
+
+.footer p {
+  font-size: 1rem;
+  color: white;
+  font-weight: bold;
+  font-weight: arial;
+}
+
+.flex-footer {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .contenedor {

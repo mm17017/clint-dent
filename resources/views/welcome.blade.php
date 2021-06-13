@@ -130,12 +130,14 @@
 
 </body>
 <footer class="footer">
-    <p class="flex-center">Calle 15 de Septiembre, local #22, Metapan, Santa Ana, El Salvador</p>
-
-    <p class="flex-center">Tel: 2440-6578</p>
-    <p class="flex-center">Email: info@clintdent.com</p>
-    <p class="flex-center">Clint-Dent - Todos los derechos reservados&copy;</p>
-
+    <div class="flex-footer">
+        <div class="parrafo">
+            <p class="">Calle 15 de Septiembre, local #22, Metapan, Santa Ana, El Salvador</p><br>
+            <p class="">Tel: 2440-6578</p><br>
+            <p class="">Email: info@clintdent.com</p>
+        </div>
+        <p class="">Clint-Dent - Todos los derechos reservados&copy;</p>
+    </div>
 </footer>
 
 </html>
