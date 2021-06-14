@@ -11013,6 +11013,70 @@ body {
   background-color: white;
 }
 
+.h3-inicio {
+  text-align: justify;
+  color: #0f3443;
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.texto {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.imagen {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 768px) {
+  .blog {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .servicios {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    -moz-column-gap: 7rem;
+         column-gap: 7rem;
+  }
+}
+
+.servicio p {
+  line-height: 2rem;
+  text-align: center;
+  font-size: 1.3rem;
+  color: #0f3443;
+}
+
+.servicio .iconos {
+  height: 15rem;
+  width: 15rem;
+  background-color: #2c9661;
+  border-radius: 50%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.servicio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.h4-inicio {
+  text-align: justify;
+  color: #0f3443;
+  font-weight: 500;
+  font-size: 1.7rem;
+}
+
 .formulario-input {
   border-radius: 5px;
   background-color: transparent;
@@ -11035,7 +11099,31 @@ body {
   background: linear-gradient(to bottom, #0f3443, #34e89e);
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   background-repeat: no-repeat;
+  height: 100%;
+}
+
+.gradiente-login-register {
+  background: #34e89e;
+  /* fallback for old browsers */
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #0f3443, #34e89e);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-repeat: no-repeat;
   height: 100vh;
+}
+
+.boton {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 1rem 3rem;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  width: auto;
+  border: none;
+  background-color: #015d67 !important;
+  border-color: #205072 !important;
 }
 
 .gradiente-form {
