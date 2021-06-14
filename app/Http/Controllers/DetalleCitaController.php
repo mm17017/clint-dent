@@ -43,11 +43,10 @@ class DetalleCitaController extends Controller
         $detalle = new Detalle_cita;
         $detalle->descripcion = $request->descripcion;                
         $detalle->fecha_cita = $request->fecha_cita;                
-        $detalle->hora_cita = $request->hora_cita;                
-        $detalle->user_id =Auth->user()->id;                
+        // $detalle->hora_cita = $request->hora_cita;                
+        $detalle->user_id =Auth::user()->id;                
         $detalle->estado_cita_id = $request->estado_cita_id;                
-        $detalle->jornada_id = $request->jornada_id;                
-        $detalle->jornada_id = $request->jornada_id;           
+        $detalle->jornada_id = $request->jornada_id;                              
         $detalle->save();
         foreach ($request->serviciosSeleccionados as $servicio) {
             $detalle->servicios()->attach($servicio);             
@@ -83,10 +82,11 @@ class DetalleCitaController extends Controller
      */
     public function update(DetalleCitaRequest $request,$id)
     {
-       // return $detalle;        
+       // return $detalle;     
+        $detalle = Detalle_cita::findOrFail($id);   
         $detalle->descripcion = $request->descripcion;                
         $detalle->fecha_cita = $request->fecha_cita;                
-        $detalle->hora_cita = $request->hora_cita;                
+        // $detalle->hora_cita = $request->hora_cita;                
         $detalle->user_id = $request->user_id;                
         $detalle->estado_cita_id = $request->estado_cita_id;                
         $detalle->jornada_id = $request->jornada_id;                
@@ -96,7 +96,7 @@ class DetalleCitaController extends Controller
         return response()->json([
             'res'=>true,
             'messagge'=>'Registro actualizado correctamente',
-            'detalle_cita'=>$detalle;
+            'detalle_cita'=>$detalle
         ],status:200);
         
     }

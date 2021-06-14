@@ -50,14 +50,14 @@
                                 v-model="cita.fecha_cita"
                             />
 
-                            <label for="hora">Hora</label>
+                            <!-- <label for="hora">Hora</label>
                             <input
                                 type="time"
                                 step="1"
                                 class="form-control"
                                 id="hora"
                                 v-model="cita.hora_cita"
-                            />
+                            /> -->
 
                             <label for="servicios">Servicios</label>
                             <select
@@ -150,7 +150,7 @@ export default {
             cita: {
                 descripcion: "",
                 fecha_cita: "",
-                hora_cita: "",
+                // hora_cita: "",
                 serviciosSeleccionados: [],
                 user_id: 0,
                 estado_cita_id: 1,

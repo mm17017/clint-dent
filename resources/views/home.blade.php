@@ -24,7 +24,7 @@
                     </div>
                     
                 </div>
-                <!-- <example-component></example-component> -->
+                {{-- <example-component></example-component>  --}}
                 <reserva-component/>
             </div>
         </div>
