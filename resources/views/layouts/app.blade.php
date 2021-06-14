@@ -57,9 +57,9 @@
                         @else
                         <li class="nav-item dropdown">
                             <li class="navbar-link links dropdown-toggle" href="{{route('home')}}">
-                                <a href="{{route('home')}}">Crear Cita</a>
+                                <a href="{{route('home')}}">Pide tú cita</a>
                             </li>
-                            <a id="navbarDropdown" class="nav-link links dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <a id="navbarDropdown" class="navbar-link links dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name_usuario }}
                             </a>
 
