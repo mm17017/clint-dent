@@ -100,7 +100,7 @@ body {
   box-shadow: 0px 5px 15px 0px rgba(112,112,112,1);
   padding: 2rem;
   border-radius: 1.5rem;
-  
+  //margin-top: 1rem;
 }
 
 //PARA REGISTRO Y LOGIN ESTILOS
@@ -212,6 +212,7 @@ background: linear-gradient(to bottom, #11998e, #38ef7d); /* W3C, IE 10+/ Edge, 
 }
 
 .contenedor {
+  margin-top: 1rem;
     max-width: 120rem;
     padding-bottom: 1rem;
 
@@ -313,6 +314,7 @@ background: linear-gradient(to bottom, #11998e, #38ef7d); /* W3C, IE 10+/ Edge, 
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  margin-bottom: 1rem;
   
 }
 .imagen-nosotros{
