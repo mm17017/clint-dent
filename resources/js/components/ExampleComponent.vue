@@ -1,10 +1,19 @@
 <template>
     <div class="container">
         <h1 class="text-center">Detalle Cita</h1>
+        <table v-if="errors != null">
+            <tbody>
+                <tr v-for="error in errors" :key="error">
+                    <th>{{error[0]}}</th>
+                </tr>
+            </tbody>
+        </table>
+        <!-- <h2 v-if="errors != null" class="text-center">{{ errors }}</h2> -->
         <br />
         <!-- Button to Open the Modal -->
         <button
             @click="
+                errors = null;
                 modificar = false;
                 abrirModal();
             "
@@ -15,7 +24,7 @@
         </button>
 
         <!-- The Modal -->
-        <div class="modal" :class="{ mostrar : modal==true }">
+        <div class="modal" :class="{ mostrar: modal == true }">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <!-- Modal Header -->
@@ -25,7 +34,8 @@
                             type="button"
                             @click="cerrarModal()"
                             class="close"
-                            data-dismiss="modal">
+                            data-dismiss="modal"
+                        >
                             &times;
                         </button>
                     </div>
@@ -117,6 +127,7 @@
                         <button
                             @click="
                                 modificar = true;
+                                errors = null;
                                 show(detalle.id);
                             "
                             class="btn btn-warning"
@@ -127,7 +138,10 @@
                     <td>
                         <button
                             class="btn btn-danger"
-                            @click="destroy(detalle.id)"
+                            @click="
+                                errors = null;
+                                destroy(detalle.id);
+                            "
                         >
                             Eliminar
                         </button>
@@ -156,7 +170,8 @@ export default {
                 estado_cita_id: 1,
                 jornada_id: 1
             },
-            detalle: {}
+            detalle: {},
+            errors: null
         };
     },
 
@@ -170,11 +185,22 @@ export default {
         async guardar(id) {
             if (this.modificar) {
                 console.log(this.detalle.id);
-                const res = await axios.put('detalle/'+id, this.cita);
-                console.log(res.data);
+                axios.put("detalle/" + id, this.cita).catch(error => {
+                    if (error.response.status == 422) {
+                        this.errors = error.response.data.errors;
+                        console.log(this.errors);
+                    }
+                });
+                // console.log(res.data);
             } else {
-                const res = await axios.post("detalle", this.cita);
-                console.log(res.data);
+                // const res = await axios.post("detalle", this.cita);
+                axios.post("detalle", this.cita).catch(error => {
+                    if (error.response.status == 422) {
+                        this.errors = error.response.data.errors;
+                        console.log(this.errors);
+                    }
+                });
+                // console.log(res.data);
             }
             this.cerrarModal();
             this.index();
@@ -192,7 +218,6 @@ export default {
         },
 
         abrirModal(data = {}) {
-            
             this.modal = true;
             if (this.modificar) {
                 this.tituloModal = "Modificar";
@@ -206,11 +231,10 @@ export default {
                 this.cita.descripcion = "";
                 this.cita.fecha_cita = "";
                 this.cita.hora_cita = "";
-                console.log('holiss')
-                axios.get('/servicios').then((res)=>{
-                this.servicios=res.data
-                })
-
+                console.log("holiss");
+                axios.get("/servicios").then(res => {
+                    this.servicios = res.data;
+                });
             }
         },
 
@@ -220,11 +244,9 @@ export default {
     },
 
     created() {
-        
-        axios.get('/detalle').then((res)=>{
-            this.detalles=res.data
-        
-        })
+        axios.get("/detalle").then(res => {
+            this.detalles = res.data;
+        });
     }
 };
 </script>
