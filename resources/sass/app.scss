@@ -213,7 +213,8 @@ background: linear-gradient(to bottom, #11998e, #38ef7d); /* W3C, IE 10+/ Edge, 
 
 .contenedor {
     max-width: 120rem;
-    
+    padding-bottom: 1rem;
+
 }
 
 .logo-main {
@@ -259,7 +260,7 @@ background: linear-gradient(to bottom, #11998e, #38ef7d); /* W3C, IE 10+/ Edge, 
     padding: 3rem 0;
     background-color: black;
     padding-bottom: 3rem;
-    
+    margin-top: 1rem;
     p{
       font-size: 1rem;
       color: white;
@@ -289,7 +290,7 @@ background: linear-gradient(to bottom, #11998e, #38ef7d); /* W3C, IE 10+/ Edge, 
 
 .sobre-nosotros--texto {
     margin-top: 0;
-    font-size: 1.8rem;
+    font-size: 1.4rem;
     text-align: justify;
 }
 
