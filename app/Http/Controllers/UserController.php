@@ -14,7 +14,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        return User::where('id',Auth:user()->id);
+        return view('user');
     }
 
     /**
@@ -36,7 +36,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+      return User::findOrFail($id);
     }
 
     /**
@@ -48,7 +48,18 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $usuario =  User::findOrFail($id);
+        $input = $request->all();
+        $input['user_id'] = Auth::user()->id;
+        $usuario->fill($input);
+        $usuario->save();
+
+        return response()->json([
+                'res'=>true,
+                'message'=>'Campos actualizados',
+                'user'=>$input
+            ],status:200);
+
     }
 
     /**
@@ -59,6 +70,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::destroy($id);
     }
 }
