@@ -38,14 +38,10 @@ class DetalleCitaController extends Controller
      */
     public function store(DetalleCitaRequest $request)
     {
-        
+        $input = $request->all();
+        $input['user_id'] = Auth::user()->id;
         $detalle = new Detalle_cita;
-        $detalle->descripcion = $request->descripcion;                
-        $detalle->fecha_cita = $request->fecha_cita;                
-        // $detalle->hora_cita = $request->hora_cita;                
-        $detalle->user_id =Auth::user()->id;                
-        $detalle->estado_cita_id = $request->estado_cita_id;                
-        $detalle->jornada_id = $request->jornada_id;                              
+        $detalle->fill($input);                                 
         $detalle->save();
         foreach ($request->serviciosSeleccionados as $servicio) {
             $detalle->servicios()->attach($servicio);             
@@ -55,8 +51,6 @@ class DetalleCitaController extends Controller
             'messagge'=>'Registro creado correctamente',
             'detalle_cita'=>$detalle
         ],status:201);
-
-
     }
 
     /**
@@ -81,15 +75,10 @@ class DetalleCitaController extends Controller
      */
     public function update(DetalleCitaRequest $request,$id)
     {
-       // return $detalle;     
-        $detalle = Detalle_cita::findOrFail($id);   
-        $detalle->descripcion = $request->descripcion;                
-        $detalle->fecha_cita = $request->fecha_cita;                
-        // $detalle->hora_cita = $request->hora_cita;                
-        $detalle->user_id = $request->user_id;                
-        $detalle->estado_cita_id = $request->estado_cita_id;                
-        $detalle->jornada_id = $request->jornada_id;                
-        $detalle->jornada_id = $request->jornada_id;
+   
+        $input = $request->all();
+        $detalle = Detalle_cita::findOrFail($id);
+        $detalle->fill($input);
         $detalle->save();
         $detalle->servicios()->sync($request->serviciosSeleccionados);
         return response()->json([

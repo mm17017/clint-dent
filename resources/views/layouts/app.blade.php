@@ -56,6 +56,9 @@
                         @endif
                         @else
                         <li class="nav-item dropdown">
+                            <li class="navbar-link links dropdown-toggle" href="{{route('home')}}">
+                                <a href="{{route('home')}}">Crear Cita</a>
+                            </li>
                             <a id="navbarDropdown" class="nav-link links dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name_usuario }}
                             </a>
@@ -83,15 +86,6 @@
     </div>
 </body>
 
-<footer class="footer">
-    <div class="flex-footer">
-        <div class="parrafo">
-            <p class="">Calle 15 de Septiembre, local #22, Metapan, Santa Ana, El Salvador</p><br>
-            <p class="">Tel: 2440-6578</p><br>
-            <p class="">Email: info@clintdent.com</p>
-        </div>
-        <p class="">Clint-Dent - Todos los derechos reservados&copy;</p>
-    </div>
-</footer>
+
 
 </html>

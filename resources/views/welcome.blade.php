@@ -98,18 +98,6 @@
             </button>
         </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
         <h1 class="content sobre-nosotros-titulo-h1">¿Quiénes Somos?</h1>
 
         <div class="">
