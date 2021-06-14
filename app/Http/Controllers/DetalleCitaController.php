@@ -15,7 +15,6 @@ class DetalleCitaController extends Controller
     public function __construct()
     {
       
-
     }
 
 
@@ -27,8 +26,8 @@ class DetalleCitaController extends Controller
     public function index()
     {
 
-        // return Detalle_cita::where('user_id', Auth::user()->id)->get();
-        return Detalle_cita::all();
+        return Detalle_cita::where('user_id', Auth::user()->id)->get();
+        // return Detalle_cita::all();
     }
 
     /**

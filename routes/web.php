@@ -29,10 +29,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-// Route::group(['middleware'=>'auth'],function (){
-    Route::apiResource('/detalle', 'DetalleCitaController');//->middleware('auth');
+Route::group(['middleware'=>'auth'],function (){
+    Route::apiResource('/detalle', 'DetalleCitaController');
     Route::apiResource('/estadocita','EstadoCitaController');
     Route::apiResource('/jornada','JornadaController');
     Route::get('/servicios', 'DetalleCitaController@getServicios')->name('servicios');
-// });
+});
 
