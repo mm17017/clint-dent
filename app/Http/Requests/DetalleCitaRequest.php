@@ -25,11 +25,11 @@ class DetalleCitaRequest extends FormRequest
      */
     public function rules()
     {
-        $yesterday = date('Y-m-d', strtotime('-1 days')); 
+        $today = date('Y-m-d'); 
 
         return [
             'descripcion'=>'required|max:50',
-            'fecha_cita'=>'required|after_or_equal:'.$yesterday,
+            'fecha_cita'=>'required|after_or_equal:'.$today,
             'user_id'=>'required|integer',
             'estado_cita_id'=>'required|integer',
             'jornada_id'=>'required|integer'
