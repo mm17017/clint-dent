@@ -39,17 +39,26 @@ class DetalleCitaController extends Controller
      */
     public function store(DetalleCitaRequest $request)
     {
-        $input = $request->all();
-        Detalle_cita::create($input);
-        return response()->json([
-            'res'=>true,
-            'messagge'=>'Registro creado correctamente',
-            'detalle_cita'=>$input
-        ],status:201);
-
+        
+        $detalle = new Detalle_cita;
+        $detalle->descripcion = $request->descripcion;                
+        $detalle->fecha_cita = $request->fecha_cita;                
+        $detalle->hora_cita = $request->hora_cita;                
+        $detalle->user_id =Auth->user()->id;                
+        $detalle->estado_cita_id = $request->estado_cita_id;                
+        $detalle->jornada_id = $request->jornada_id;                
+        $detalle->jornada_id = $request->jornada_id;           
+        $detalle->save();
         foreach ($request->serviciosSeleccionados as $servicio) {
             $detalle->servicios()->attach($servicio);             
         }
+        return response()->json([
+            'res'=>true,
+            'messagge'=>'Registro creado correctamente',
+            'detalle_cita'=>$detalle
+        ],status:201);
+
+
     }
 
     /**
@@ -74,16 +83,22 @@ class DetalleCitaController extends Controller
      */
     public function update(DetalleCitaRequest $request,$id)
     {
-        $input = $request->all();
-        $detalleCita = Detalle_cita::findOrFail($id);
-        $detalleCita->fill($input);
-        $detalleCita->save();
+       // return $detalle;        
+        $detalle->descripcion = $request->descripcion;                
+        $detalle->fecha_cita = $request->fecha_cita;                
+        $detalle->hora_cita = $request->hora_cita;                
+        $detalle->user_id = $request->user_id;                
+        $detalle->estado_cita_id = $request->estado_cita_id;                
+        $detalle->jornada_id = $request->jornada_id;                
+        $detalle->jornada_id = $request->jornada_id;
+        $detalle->save();
+        $detalle->servicios()->sync($request->serviciosSeleccionados);
         return response()->json([
             'res'=>true,
             'messagge'=>'Registro actualizado correctamente',
-            'detalle_cita'=>$input
+            'detalle_cita'=>$detalle;
         ],status:200);
-        $detalle->servicios()->sync($request->serviciosSeleccionados);
+        
     }
 
     /**
@@ -94,13 +109,13 @@ class DetalleCitaController extends Controller
      */
     public function destroy($id)
     {
-        if (Auth::user()->id == $detalle->user_id) {
-            Detalle_cita::destroy($id);
-            return response()->json([
-                'res'=>true,
-                'message'=>'Registro eliminado correctamente'
-            ],status:200);
-        }
+        
+        Detalle_cita::destroy($id);
+        return response()->json([
+            'res'=>true,
+            'message'=>'Registro eliminado correctamente'
+        ],status:200);
+        
     }
 
     public function getServicios()
