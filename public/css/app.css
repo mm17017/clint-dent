@@ -11117,7 +11117,9 @@ body {
 }
 
 .contenedor {
+  margin-top: 1rem;
   max-width: 120rem;
+  padding-bottom: 1rem;
 }
 
 .logo-main {
@@ -11159,6 +11161,7 @@ body {
   padding: 3rem 0;
   background-color: black;
   padding-bottom: 3rem;
+  margin-top: 1rem;
 }
 
 .footer p {
@@ -11190,7 +11193,7 @@ body {
 
 .sobre-nosotros--texto {
   margin-top: 0;
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   text-align: justify;
 }
 
@@ -11214,6 +11217,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
+  margin-bottom: 1rem;
 }
 
 .imagen-nosotros {
