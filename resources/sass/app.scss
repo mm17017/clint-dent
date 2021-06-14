@@ -87,6 +87,23 @@ body {
   text-align: left;
   background-color: black;
 }
+//INICIO
+.h1-inicio{
+  text-align: center;
+  color: #0f3443;
+  font-weight: 900;
+  font-size: 2.4rem;
+  text-transform: uppercase;
+}
+.contenedor-inicio{
+  max-width: 120rem;
+  width: 90%;
+  width: min(90%, 120rem);
+  margin: 0 auto;
+  padding-bottom: 4rem;
+  background-color: white;
+}
+
 .formulario-input{
   border-radius: 5px;
   background-color: transparent;
@@ -166,7 +183,7 @@ background: linear-gradient(to bottom, #11998e, #38ef7d); /* W3C, IE 10+/ Edge, 
 }
 
 .links>a {
-    color: #fff;
+    color: #fff !important;
     padding: 0 25px;
     font-size: 15px;
     font-weight: 600;
@@ -414,13 +431,14 @@ sup {
 }
 
 a {
-  color: white;
-  text-decoration: none;
+  color: white !important;
+  text-decoration: none !important;
+  font-weight: bold !important;
   background-color: transparent;
 }
 
 a:hover {
-  color: #205072;
+  color: #205072 !important;
 
 }
 
@@ -3844,7 +3862,7 @@ input[type=button].btn-block {
   color: #212529;
   text-align: inherit;
   white-space: nowrap;
-  background-color: transparent;
+  background-color: #0f3443 !important;
   border: 0;
 }
 
@@ -3852,7 +3870,7 @@ input[type=button].btn-block {
 .dropdown-item:focus {
   color: #16181b;
   text-decoration: none;
-  background-color: #e9ecef;
+  background-color: white;
 }
 
 .dropdown-item.active,
@@ -4684,6 +4702,8 @@ input[type=button].btn-block {
 .nav-link {
   display: block;
   padding: 0.5rem 1rem;
+  color: white !important;
+  font-weight: bold !important;
 }
 
 .nav-link:hover,
@@ -4692,7 +4712,7 @@ input[type=button].btn-block {
 }
 
 .nav-link.disabled {
-  color: #6c757d;
+  color: white;
   pointer-events: none;
   cursor: default;
 }
@@ -4714,14 +4734,14 @@ input[type=button].btn-block {
 }
 
 .nav-tabs .nav-link.disabled {
-  color: #6c757d;
+  color: white;
   background-color: transparent;
   border-color: transparent;
 }
 
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
-  color: #495057;
+  color: white;
   background-color: #f8fafc;
   border-color: #dee2e6 #dee2e6 #f8fafc;
 }
@@ -4739,7 +4759,7 @@ input[type=button].btn-block {
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
-  background-color: #3490dc;
+  background-color: transparent;
 }
 
 .nav-fill > .nav-link,
