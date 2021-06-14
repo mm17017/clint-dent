@@ -64,6 +64,10 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                {{-- <a class="dropdown-item links" href="{{ route('user') }}">
+                                    {{ __('Mi Usuario') }}
+                                </a> --}}
+
                                 <a class="dropdown-item links" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                     {{ __('Salir') }}
