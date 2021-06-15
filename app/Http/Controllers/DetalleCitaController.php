@@ -119,7 +119,7 @@ class DetalleCitaController extends Controller
         $jornadas = Jornada::get();
 
         //Obteniendo citas de una fecha especifica
-        $citas = Jornada::join('detalle_citas','jornadas.id','=','detalle_citas.jornada_id')->where('fecha_cita','>=',$request)->get();                           
+        $citas = Jornada::join('detalle_citas','jornadas.id','=','detalle_citas.jornada_id')->where('fecha_cita','=',$request)->get();                           
         foreach ($jornadas as $key => $jornada) {
             $ocupada = false;                                    
             foreach ($citas as $cita) {                

@@ -1,72 +1,112 @@
 <template>
-    <form method="POST">
-        <div class="form-group row">
-            <label
-                for="descripcion"
-                class="col-md-4 col-form-label text-md-right color-blanco"
-                >Descripcion</label
-            >
+    <div class="container">
+        <table v-if="errors != null">
+            <tbody>
+                <tr v-for="error in errors" :key="error[1]">
+                    <th>{{ error[0] }}</th>
+                </tr>
+            </tbody>
+        </table>
 
-            <div class="col-md-6">
-                <input
-                    id="descripcion"
-					v-model="cita.descripcion"
-                    placeholder="Detalla tu cita"
-                    type="text"
-                    class="form-control"
-                    name="name_usuario"
-                    autofocus
-                />
-            </div>
-        </div>
-        <div class="form-group row">
-            <label
-                for="fecha_cita"
-                class="col-md-4 col-form-label text-md-right color-blanco"
-                >Fecha de cita</label
-            >
-            <div class="col-md-6">				                
-				<input
-					v-model="cita.fecha_cita"
-					@input="getJornadas(cita.fecha_cita)"
-                    id="fecha_cita"
-                    type="date"
-                    class="form-control"
-                    name="lastname_usuario"
-                />
-            </div>
-        </div>
-        <div class="form-group row">
-            <label
-                for="hora_cita"
-                class="col-md-4 col-form-label text-md-right color-blanco"
-                >Hora programada</label
-            >
-
-            <div class="col-md-6">
-                <select
-                    class="custom-select"                    
-                    id="servicios"
-                    v-model="cita.jornada_id"
+        <form method="POST">
+            <div class="form-group row">
+                <label
+                    for="descripcion"
+                    class="col-md-4 col-form-label text-md-right color-blanco"
+                    >Descripcion</label
                 >
-                    <option
-                        v-for="jornada in jornadas"
-                        :value="jornada.id"
-                        :key="jornada.id"
-                        >{{ jornada.hora_inicio }}</option
-                    >
-                </select>
-            </div>
-        </div>
 
-        <div class="form-group row mb-0">
-            <div class="col-md-6 offset-md-4 text-right">
-                <button type="submit" class="btn btn-primary">
-                    Reservar
-                </button>
+                <div class="col-md-6">
+                    <input
+                        id="descripcion"
+                        v-model="cita.descripcion"
+                        placeholder="Detalla tu cita"
+                        type="text"
+                        class="form-control"
+                        name="name_usuario"
+                        autofocus
+                    />
+                </div>
             </div>
-        </div>
-    </form>
+            <div class="form-group row">
+                <label
+                    for="fecha_cita"
+                    class="col-md-4 col-form-label text-md-right color-blanco"
+                    >Fecha de cita</label
+                >
+                <div class="col-md-6">
+                    <input
+                        v-model="cita.fecha_cita"
+                        @input="getJornadas(cita.fecha_cita)"
+                        id="fecha_cita"
+                        type="date"
+                        class="form-control"
+                        name="lastname_usuario"
+                    />
+                </div>
+            </div>
+            <div class="form-group row">
+                <label
+                    for="hora_cita"
+                    class="col-md-4 col-form-label text-md-right color-blanco"
+                    >Hora programada</label
+                >
+
+                <div class="col-md-6">
+                    <select
+                        class="custom-select"
+                        id="servicios"
+                        v-model="cita.jornada_id"
+                    >
+                        <option
+                            v-for="jornada in jornadas"
+                            :value="jornada.id"
+                            :key="jornada.id"
+                            >{{ jornada.hora_inicio }}</option
+                        >
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label
+                    for="servicios"
+                    class="col-md-4 col-form-label text-md-right color-blanco"
+                    >Servicios</label
+                >
+
+                <div class="col-md-6">
+                    <select
+                        class="custom-select"
+                        id="servicios"
+                        multiple
+                        v-model="cita.serviciosSeleccionados"
+                    >
+                        <option
+                            v-for="servicio in servicios"
+                            :value="servicio.id"
+                            :key="servicio.id"
+                            >{{ servicio.id }} - {{ servicio.descripcion }}: ${{
+                                servicio.precio
+                            }}</option
+                        >
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group row mb-0">
+                <div class="col-md-6 offset-md-4 text-right">
+                    <button
+                        @click="store()"
+                        class="btn btn-primary"
+                        type="button"
+                    >
+                        Reservar
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
 </template>
 
 <script>
@@ -76,7 +116,6 @@ export default {
             detalles: [],
             servicios: [],
             jornadas: [],
-			fecha:"",
             cita: {
                 descripcion: "",
                 fecha_cita: "",
@@ -90,20 +129,28 @@ export default {
         };
     },
 
-	methods: {
+    methods: {
 
-		async getJornadas(fecha){			
-			console.log(this.fecha);
-			const res = await axios.get("/jornadas/"+this.cita.fecha_cita);
-			this.jornadas = res.data;
-			console.log(this.jornadas);
-		},
-	},
+        async store() {
+            axios.post("detalle/", this.cita).catch(error => {
+                if (error.response.status == 422) {
+                    this.errors = error.response.data.errors;
+                    console.log(this.errors);
+                }
+            });                        
+        },
+
+        async getJornadas(fecha) {            
+            const res = await axios.get("/jornadas/" + this.cita.fecha_cita);
+            this.jornadas = res.data;
+            console.log(this.jornadas);
+        },        
+    },
 
     created() {
         axios.get("/servicios").then(res => {
             this.servicios = res.data;
-        });        
+        });
     }
 };
 </script>
