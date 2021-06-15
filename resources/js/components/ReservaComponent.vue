@@ -10,6 +10,7 @@
             <div class="col-md-6">
                 <input
                     id="descripcion"
+					v-model="cita.descripcion"
                     placeholder="Detalla tu cita"
                     type="text"
                     class="form-control"
@@ -24,8 +25,10 @@
                 class="col-md-4 col-form-label text-md-right color-blanco"
                 >Fecha de cita</label
             >
-            <div class="col-md-6">
-                <input
+            <div class="col-md-6">				                
+				<input
+					v-model="cita.fecha_cita"
+					@input="getJornadas(cita.fecha_cita)"
                     id="fecha_cita"
                     type="date"
                     class="form-control"
@@ -42,16 +45,15 @@
 
             <div class="col-md-6">
                 <select
-                    class="custom-select"
-                    multiple
+                    class="custom-select"                    
                     id="servicios"
-                    v-model="cita.serviciosSeleccionados"
+                    v-model="cita.jornada_id"
                 >
                     <option
-                        v-for="servicio in servicios"
-                        :value="servicio.id"
-                        :key="servicio.id"
-                        >{{ servicio.id }} - {{ servicio.descripcion }}</option
+                        v-for="jornada in jornadas"
+                        :value="jornada.id"
+                        :key="jornada.id"
+                        >{{ jornada.hora_inicio }}</option
                     >
                 </select>
             </div>
@@ -68,9 +70,42 @@
 </template>
 
 <script>
+export default {
+    data() {
+        return {
+            detalles: [],
+            servicios: [],
+            jornadas: [],
+			fecha:"",
+            cita: {
+                descripcion: "",
+                fecha_cita: "",
+                serviciosSeleccionados: [],
+                user_id: 0,
+                estado_cita_id: 1,
+                jornada_id: {}
+            },
+            detalle: {},
+            errors: null
+        };
+    },
 
+	methods: {
 
+		async getJornadas(fecha){			
+			console.log(this.fecha);
+			const res = await axios.get("/jornadas/"+this.cita.fecha_cita);
+			this.jornadas = res.data;
+			console.log(this.jornadas);
+		},
+	},
+
+    created() {
+        axios.get("/servicios").then(res => {
+            this.servicios = res.data;
+        });        
+    }
+};
 </script>
-
 
 <style scoped></style>

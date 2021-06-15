@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\DetalleCitaRequest;
 use App\Http\Requests\CreateDetalleCitaRequest;
+use App\Models\Jornada;
+use Illuminate\Support\Facades\Date;
 
 class DetalleCitaController extends Controller
 {
@@ -109,5 +111,28 @@ class DetalleCitaController extends Controller
     public function getServicios()
     {
         return Servicio::get();
+    }
+
+    public function getJornadas($request){
+        $ocupada = false;
+        //Obteniendo todas las jornadas
+        $jornadas = Jornada::get();
+
+        //Obteniendo citas de una fecha especifica
+        $citas = Jornada::join('detalle_citas','jornadas.id','=','detalle_citas.jornada_id')->where('fecha_cita','>=',$request)->get();                           
+        foreach ($jornadas as $key => $jornada) {
+            $ocupada = false;                                    
+            foreach ($citas as $cita) {                
+                if($cita->jornada_id == $jornada->id){                                        
+                    $ocupada = true;                                   
+                    break;
+                }
+            }
+            if($ocupada == true){                
+                unset($jornadas[$key]);
+            }
+        }
+
+        return $jornadas;
     }
 }

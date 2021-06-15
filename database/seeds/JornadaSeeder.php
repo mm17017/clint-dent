@@ -38,27 +38,27 @@ class JornadaSeeder extends Seeder
         ]);
 
         Jornada::create([
-            'hora_inicio'=>'01:00:00',
+            'hora_inicio'=>'13:00:00',
             'tipo_jornada_id'=>2,
         ]);
 
         Jornada::create([
-            'hora_inicio'=>'02:00:00',
+            'hora_inicio'=>'14:00:00',
             'tipo_jornada_id'=>2,
         ]);
 
         Jornada::create([
-            'hora_inicio'=>'03:00:00',
+            'hora_inicio'=>'15:00:00',
             'tipo_jornada_id'=>2,
         ]);
 
         Jornada::create([
-            'hora_inicio'=>'04:00:00',
+            'hora_inicio'=>'16:00:00',
             'tipo_jornada_id'=>2,
         ]);
 
         Jornada::create([
-            'hora_inicio'=>'05:00:00',
+            'hora_inicio'=>'17:00:00',
             'tipo_jornada_id'=>2,
         ]);
 

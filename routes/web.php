@@ -37,5 +37,6 @@ Route::group(['middleware'=>'auth'],function (){
     Route::apiResource('/user','UserController');
 
     Route::get('/servicios', 'DetalleCitaController@getServicios')->name('servicios');
+    Route::get('/jornadas/{id}', 'DetalleCitaController@getJornadas')->name('jornadas');
 });
 
