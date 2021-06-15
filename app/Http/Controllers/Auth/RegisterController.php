@@ -8,6 +8,7 @@ use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Crypt;
 
 class RegisterController extends Controller
 {
@@ -75,7 +76,7 @@ class RegisterController extends Controller
         return User::create([
             'name_usuario' => $data['name_usuario'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'password' => Crypt::encryptString($data['password']),
             'lastname_usuario' => $data['lastname_usuario'],
             'fecha_nacimiento' => $data['fecha_nacimiento'],
             'telefono' => $data['telefono'],
