@@ -109,21 +109,6 @@
                             v-model="cita.serviciosSeleccionados"
                         />
                     </div>
-                    <!-- <select
-                        class="custom-select"
-                        id="servicios"
-                        multiple
-                        v-model="cita.serviciosSeleccionados"
-                    >
-                        <option
-                            v-for="servicio in servicios"
-                            :value="servicio.id"
-                            :key="servicio.id"
-                            >{{ servicio.id }} - {{ servicio.descripcion }}: ${{
-                                servicio.precio
-                            }}</option
-                        >
-                    </select> -->
                     <span
                         v-for="(pass, index) in errors.serviciosSeleccionados"
                         :key="index"
@@ -166,15 +151,11 @@ export default {
             },
             detalle: {},
             errors: {},
-            response: ""
+            response: "",
         };
     },
 
     methods: {
-        reset() {
-            this.cita.descripcion = "";
-            this.cita.fecha_cita = "";
-        },
         async store() {
             axios
                 .post("detalle/", this.cita)
@@ -187,6 +168,8 @@ export default {
                     }
                 });
             this.errors = {};
+            document.getElementById('reserva').reset();           
+            console.log(this.cita.serviciosSeleccionados);                         
         },
 
         async getJornadas(fecha) {
@@ -197,8 +180,7 @@ export default {
 
     created() {
         axios.get("/servicios").then(res => {
-            this.servicios = res.data;
-            console.log(this.servicios);
+            this.servicios = res.data;            
         });
     }
 };
