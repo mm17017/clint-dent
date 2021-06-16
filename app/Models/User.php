@@ -18,7 +18,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name_usuario', 'email', 'password','lastname_usuario','fecha_nacimiento','telefono'
+        'name_usuario', 'email', 'password', 'lastname_usuario', 'fecha_nacimiento', 'telefono'
     ];
 
     /**
@@ -27,7 +27,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $hidden = [
-         'remember_token',
+        'remember_token',
     ];
 
     /**
@@ -39,11 +39,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function detalle_cita(){
+    public function detalle_cita()
+    {
         return $this->hasMany(detalle_cita::class);
     }
 
-    public function tipo_usuarios(){
+    public function tipo_usuarios()
+    {
         return $this->belongsTo(tipo_usuarios::class);
     }
 }
