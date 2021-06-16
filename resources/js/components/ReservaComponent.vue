@@ -73,6 +73,11 @@
                         v-model="cita.jornada_id"
                     >
                         <option
+                            value=""
+                            disabled
+                            selected
+                        >--SELECCIONE UNA HORA--</option>
+                        <option
                             v-for="jornada in jornadas"
                             :value="jornada.id"
                             :key="jornada.id"
