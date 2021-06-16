@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
 use App\Models\Detalle_cita;
 use App\Models\Servicio;
 use Illuminate\Http\Request;
@@ -135,4 +136,14 @@ class DetalleCitaController extends Controller
 
         return $jornadas;
     }
+
+    /*public function store(){
+        $data = request()->validated([
+            'title'=>'',
+            'content'=>''
+        ]);
+
+        Post::created ($data);
+    }*/
+
 }
