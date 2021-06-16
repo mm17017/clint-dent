@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Http\Requests\UpdateUserRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -22,9 +23,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $user = User::findOrFail(Auth::user()->id) ;
-        $user['password'] = Crypt::decryptString($user['password']);
-        return $user;
+        return User::findOrFail(Auth::user()->id) ;
     }
 
     /**
@@ -46,7 +45,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-      return User::findOrFail($id);
+        return User::findOrFail($id);
     }
 
     /**
@@ -56,15 +55,14 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateUserRequest $request, $id)
     {
         $usuario =  User::findOrFail($id);
         $input = $request->all();
         $input['user_id'] = Auth::user()->id;
-        $input['password'] = Crypt::encryptString($input['password']);
+        $input['password'] = Hash::make($request->password);
         $usuario->fill($input);
         $usuario->save();
-        $input['password'] = Crypt::decryptString($input['password']);
         return response()->json([
                 'res'=>true,
                 'message'=>'Campos actualizados',
@@ -81,5 +79,9 @@ class UserController extends Controller
     public function destroy($id)
     {
         User::destroy($id);
+        return response()->json([
+            'res'=>true,
+            'message'=>'Usuario eliminado',
+        ],status:200);
     }
 }

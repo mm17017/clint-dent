@@ -73,7 +73,7 @@
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             
-                            <a class="dropdown-item links" href="#">
+                            <a class="dropdown-item links" href="{{route('usuario')}}">
                                 {{ __('Mi Usuario') }}
                             </a>
 
