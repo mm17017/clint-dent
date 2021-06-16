@@ -50,7 +50,7 @@ class DetalleCitaController extends Controller
         }
         return response()->json([
             'res'=>true,
-            'messagge'=>'Registro creado correctamente',
+            'messagge'=>'Reserva realizada',
             'detalle_cita'=>$detalle
         ],status:201);
     }

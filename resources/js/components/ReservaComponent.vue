@@ -1,14 +1,14 @@
 <template>
     <div class="container">
-        <table v-if="errors != null">
-            <tbody>
-                <tr v-for="error in errors" :key="error[1]">
-                    <th>{{ error[0] }}</th>
-                </tr>
-            </tbody>
-        </table>
-
-        <form method="POST">
+        <div
+            v-if="response"
+            class="alert alert-success"
+            align-center
+            role="alert"
+        >
+            {{ response }}
+        </div>
+        <form method="POST" id="reserva">
             <div class="form-group row">
                 <label
                     for="descripcion"
@@ -26,6 +26,13 @@
                         name="name_usuario"
                         autofocus
                     />
+                    <span
+                        v-for="(pass, index) in errors.descripcion"
+                        :key="index"
+                        style="color: red"
+                        role="alert"
+                        >{{ pass }}</span
+                    >
                 </div>
             </div>
             <div class="form-group row">
@@ -43,6 +50,13 @@
                         class="form-control"
                         name="lastname_usuario"
                     />
+                    <span
+                        v-for="(pass, index) in errors.fecha_cita"
+                        :key="index"
+                        style="color: red"
+                        role="alert"
+                        >{{ pass }}</span
+                    >
                 </div>
             </div>
             <div class="form-group row">
@@ -65,6 +79,13 @@
                             >{{ jornada.hora_inicio }}</option
                         >
                     </select>
+                    <span
+                        v-for="(pass, index) in errors.jornada_id"
+                        :key="index"
+                        style="color: red"
+                        role="alert"
+                        >{{ pass }}</span
+                    >
                 </div>
             </div>
 
@@ -76,7 +97,19 @@
                 >
 
                 <div class="col-md-6">
-                    <select
+                    <div v-for="servicio in servicios" :key="servicio.id">
+                        <label
+                            for="servicio.descripcion"
+                            >{{ servicio.descripcion }}</label
+                        >
+                        <input                            
+                            type="checkbox"
+                            id="servicio.descripcion"
+                            :value="servicio.id"
+                            v-model="cita.serviciosSeleccionados"
+                        />
+                    </div>
+                    <!-- <select
                         class="custom-select"
                         id="servicios"
                         multiple
@@ -90,7 +123,14 @@
                                 servicio.precio
                             }}</option
                         >
-                    </select>
+                    </select> -->
+                    <span
+                        v-for="(pass, index) in errors.serviciosSeleccionados"
+                        :key="index"
+                        style="color: red"
+                        role="alert"
+                        >{{ pass }}</span
+                    >
                 </div>
             </div>
 
@@ -125,31 +165,40 @@ export default {
                 jornada_id: {}
             },
             detalle: {},
-            errors: null
+            errors: {},
+            response: ""
         };
     },
 
     methods: {
-
+        reset() {
+            this.cita.descripcion = "";
+            this.cita.fecha_cita = "";
+        },
         async store() {
-            axios.post("detalle/", this.cita).catch(error => {
-                if (error.response.status == 422) {
-                    this.errors = error.response.data.errors;
-                    console.log(this.errors);
-                }
-            });                        
+            axios
+                .post("detalle/", this.cita)
+                .then(res => {
+                    this.response = res.data.messagge;
+                })
+                .catch(error => {
+                    if (error.response.status == 422) {
+                        this.errors = error.response.data.errors;
+                    }
+                });
+            this.errors = {};
         },
 
-        async getJornadas(fecha) {            
+        async getJornadas(fecha) {
             const res = await axios.get("/jornadas/" + this.cita.fecha_cita);
             this.jornadas = res.data;
-            console.log(this.jornadas);
-        },        
+        }
     },
 
     created() {
         axios.get("/servicios").then(res => {
             this.servicios = res.data;
+            console.log(this.servicios);
         });
     }
 };

@@ -32,7 +32,8 @@ class DetalleCitaRequest extends FormRequest
             'fecha_cita'=>'required|after_or_equal:'.$today,
             'user_id'=>'required|integer',
             'estado_cita_id'=>'required|integer',
-            'jornada_id'=>'required|integer'
+            'jornada_id'=>'required|integer',
+            "serviciosSeleccionados" => 'required',
         ];
     }
     public function messages()
@@ -43,7 +44,9 @@ class DetalleCitaRequest extends FormRequest
             'fecha_cita.required' => 'La Fecha es obligatoria',
             'user_id.required'=>'Debe ingresar el codigo de usuario',
             'user_id.integer'=>'Debe ingresar un valor',
+            'jornada_id.required' => 'Seleccione una hora para su cita',
             'fecha_cita.after_or_equal' => 'Fecha invalida coloque una fecha igual o posterior a hoy',
+            'serviciosSeleccionados.required' => 'Seleccione por lo menos un servicio a recibir'
         ];
     }
 }
