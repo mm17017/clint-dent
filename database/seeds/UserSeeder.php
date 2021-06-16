@@ -12,6 +12,13 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        factory(User::class, 10)->create();
+        User::create([
+            'email'=>'info@clintdent.com',
+            'password'=>'contraseña',
+            'lastname_usuario'=>'clint',
+            'name_usuario'=>'root',
+            'fecha_nacimiento'=>'2021-03-05',
+            'telefono'=>'12345',
+        ]);
     }
 }
