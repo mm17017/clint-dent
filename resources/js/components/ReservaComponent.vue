@@ -98,11 +98,10 @@
 
                 <div class="col-md-6">
                     <div v-for="servicio in servicios" :key="servicio.id">
-                        <label
-                            for="servicio.descripcion"
-                            >{{ servicio.descripcion }}</label
-                        >
-                        <input                            
+                        <label for="servicio.descripcion">{{
+                            servicio.descripcion
+                        }}</label>
+                        <input
                             type="checkbox"
                             id="servicio.descripcion"
                             :value="servicio.id"
@@ -151,7 +150,7 @@ export default {
             },
             detalle: {},
             errors: {},
-            response: "",
+            response: ""
         };
     },
 
@@ -168,8 +167,14 @@ export default {
                     }
                 });
             this.errors = {};
-            document.getElementById('reserva').reset();           
-            console.log(this.cita.serviciosSeleccionados);                         
+            this.cita = {
+                descripcion: "",
+                fecha_cita: "",
+                serviciosSeleccionados: [],
+                user_id: 0,
+                estado_cita_id: 1,
+                jornada_id: {}
+            };
         },
 
         async getJornadas(fecha) {
@@ -180,7 +185,7 @@ export default {
 
     created() {
         axios.get("/servicios").then(res => {
-            this.servicios = res.data;            
+            this.servicios = res.data;
         });
     }
 };
