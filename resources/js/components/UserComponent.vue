@@ -232,7 +232,7 @@ export default {
       this.modificar=false
     },
     actualizar() {
-      if (this.usuario.password === this.confirmar) {
+      if (this.usuario.password === this.confirmar && this.usuario.password != "" && this.confirmar != "") {
         axios
           .put(`/user/${this.usuario.id}`, this.usuario)
           .then((res) => {
@@ -259,7 +259,11 @@ export default {
             }
           });
         this.modificar = false;
-      } else {
+      } else if(this.confirmar == "" && this.usuario.password == "") {
+        this.confirmacion = [];
+        this.confirmacion.push("Los campos Contraseña y Confirmar Contraseña son requeridos");
+      }else{
+        this.confirmacion = [];
         this.confirmacion.push("No coincide la confirmacion de contrasena");
       }
     },
