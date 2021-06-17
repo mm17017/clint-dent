@@ -895,8 +895,6 @@ mark,
 .img-fluid {
   max-width: 80%;
   height: 300px !important;
-  background-size: cover !important;
-  background-position: center center !important;
   display:block;
   margin-left: auto;
   margin-right: auto;
@@ -2189,12 +2187,12 @@ pre code {
 }
 
 .table-bordered {
-  border: 1px solid #dee2e6;
+  border: 3px solid #0f3443;
 }
 
 .table-bordered th,
 .table-bordered td {
-  border: 1px solid #dee2e6;
+  border: 3px solid #0f3443;;
 }
 
 .table-bordered thead th,
@@ -2214,8 +2212,9 @@ pre code {
 }
 
 .table-hover tbody tr:hover {
-  color: #212529;
-  background-color: rgba(0, 0, 0, 0.075);
+  color: white;
+  background-color: #7ccbeb;
+  cursor: default;
 }
 
 .table-primary,
@@ -2437,7 +2436,7 @@ pre code {
 }
 
 .table-dark.table-striped tbody tr:nth-of-type(odd) {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(253, 253, 253, 0.05);
 }
 
 .table-dark.table-hover tbody tr:hover {
@@ -3740,7 +3739,7 @@ input[type=button].btn-block {
 }
 
 .fade {
-  transition: opacity 0.15s linear;
+  transition: opacity 0s linear;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -7109,6 +7108,7 @@ a.close.disabled {
   color: #212529;
 }
 
+
 .carousel {
   position: relative;
 }
@@ -7121,7 +7121,7 @@ a.close.disabled {
   position: relative;
   width: 100%;
   overflow: hidden;
-  background-size: cover !important;
+  transition-duration: 1s !important;
 }
 
 .carousel-inner::after {
@@ -7133,12 +7133,14 @@ a.close.disabled {
 .carousel-item {
   position: relative;
   display: none;
-  float: left;
+  //float: inline-end;
   width: 100%;
   margin-right: -100%;
-  -webkit-backface-visibility: hidden;
-          backface-visibility: hidden;
-  transition: transform 0.3s ease-out;
+   -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+  transition-property: all !important;
+  transition-duration: 0.5s !important;
+  
 
 }
 
@@ -7169,7 +7171,7 @@ a.close.disabled {
 .carousel-fade .carousel-item {
   opacity: 0;
   transition-property: opacity;
-  transform: none;
+  transform: 0;
 }
 
 .carousel-fade .carousel-item.active,
@@ -7183,13 +7185,13 @@ a.close.disabled {
 .carousel-fade .active.carousel-item-right {
   z-index: 0;
   opacity: 0;
-  transition: opacity 0s 0.6s;
+  transition: 0s !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
   .carousel-fade .active.carousel-item-left,
   .carousel-fade .active.carousel-item-right {
-    transition: none;
+    transition: 0s !important;
   }
 }
 
@@ -7206,7 +7208,7 @@ a.close.disabled {
   color: #fff;
   text-align: center;
   opacity: 0.5;
-  transition: opacity 0.15s ease;
+  transition: 0s !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -7278,7 +7280,7 @@ a.close.disabled {
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
   opacity: 0.5;
-  transition: opacity 0.6s ease;
+  transition: 0s !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -8743,7 +8745,7 @@ button.bg-dark:focus {
   height: auto;
   overflow: visible;
   clip: auto;
-  white-space: normal;
+ // white-space: normal;
 }
 
 .shadow-sm {
