@@ -41,3 +41,12 @@ Route::group(['middleware'=>'auth'],function (){
     Route::get('/jornadas/{id}', 'DetalleCitaController@getJornadas')->name('jornadas');
 });
 
+Route::post('/post', 'DetalleCitaController@store');
+
+/*Route::get('/clear-cache', function() {
+    Artisan::call('cache:clear');
+     return "Cache is cleared";
+     });
+     
+     Preguntar a margueiz, ya que esta ruta esta duplicada, y desconozco como adaptarlo para hacer un testing
+     */
