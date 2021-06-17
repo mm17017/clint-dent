@@ -2,8 +2,10 @@
     <div class="container">
         <div class="col-md-6">
             <div
-                class="justify-content-center modal"
+                class="justify-content-center modal fade"  
                 :class="{ mostrar: modificar == true }"
+                id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true"
+
             >
                 <div class="card-body contenedor sombra gradiente-form">
                     <h2 class="text-center padding-bottom color-blanco">
@@ -298,6 +300,7 @@ export default {
 </script>
 <style scoped>
 .mostrar {
+    margin-top: 1rem;
     display: list-item;
     opacity: 1;
     background: rgba(44, 38, 75, 0.489);

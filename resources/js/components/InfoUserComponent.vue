@@ -52,10 +52,10 @@ export default {
   methods: {
     eliminarCuenta() {
       axios.delete(`user/${this.usuario.id}`).then((res) => {
-        this.usuario = [];
         axios.post("logout").then(() => {
           setTimeout(() => {
             alert("Usuario Elimando");
+            this.usuario = [];
             location.reload();
           }, 2000);
         });
