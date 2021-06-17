@@ -265,6 +265,7 @@
                             type="button"
                             class="btn btn-secondary"
                             data-dismiss="modal"
+                            v-if="modificar == false"
                         >
                             Cancelar
                         </button>
@@ -286,6 +287,17 @@
                             v-if="modificar == true"
                         >
                             Guardar
+                        </button>
+
+                        <button
+                            class="btn btn-danger"
+                            v-if="modificar == true"
+                            @click="
+                                errors = {};
+                                destroy(detalle.id);
+                            "
+                        >
+                            Eliminar Cita
                         </button>
                     </div>
                 </div>
@@ -333,6 +345,14 @@ export default {
             // this.$emit("detalle", this.detalle);
         },
 
+        async destroy(id) {
+            await axios.delete("detalle/" + id).then(res => {
+                this.response = res.data.messagge;
+                this.modal = false;
+                this.index();
+            });
+        },
+
         habilitar() {
             this.cita.fecha_cita = "";
             this.cita.jornada_id = "";
@@ -343,18 +363,21 @@ export default {
             this.modificar = true;
         },
 
-        guardar(id) {            
+        guardar(id) {
             this.errors = {};
-            axios.put("detalle/" + id, this.cita).then(res=>{
-                this.response = res.data.messagge;
-                this.modal = false;
-                this.index();
-            }).catch(error => {
-                if (error.response.status == 422) {
-                    this.errors = error.response.data.errors;
-                    console.log(this.errors);
-                }
-            });            
+            axios
+                .put("detalle/" + id, this.cita)
+                .then(res => {
+                    this.response = res.data.messagge;
+                    this.modal = false;
+                    this.index();
+                })
+                .catch(error => {
+                    if (error.response.status == 422) {
+                        this.errors = error.response.data.errors;
+                        console.log(this.errors);
+                    }
+                });
             // if(this.errors == {}){
             //     this.modal = false;
             //     this.index();
