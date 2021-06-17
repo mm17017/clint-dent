@@ -64,6 +64,7 @@ class DetalleCitaController extends Controller
     public function show(Detalle_cita $detalle)
     {
         if ($detalle->user_id == Auth::user()->id) {
+            $detalle->jornada_id = Jornada::where('id', $detalle->jornada_id)->get();
             return ([$detalle, $detalle->servicios]);
         }
     }

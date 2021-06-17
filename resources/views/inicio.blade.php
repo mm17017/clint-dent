@@ -85,7 +85,7 @@
             </h3>
             <br>
             <div class="boton btn-primary">
-                <a href="/home">Reserva tu cita</a>
+                <a href="home?var=reserva">Reserva tu cita</a>
             </div>
 
         </div>

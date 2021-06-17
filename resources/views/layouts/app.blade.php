@@ -59,8 +59,8 @@
                         <li class="navbar-link links" href="{{route('inicio')}}">
                             <a href="{{route('inicio')}}">Inicio</a>
                         </li>
-                        <li class="navbar-link links" href="{{route('home')}}">
-                            <a href="{{route('home')}}">Pide tu cita</a>
+                        <li class="navbar-link links" href="{{route('home', 2)}}">
+                            <a href="home?var=reserva">Pide tu cita</a>
                         </li>
 
                         <a id="navbarDropdown" class="navbar-link links dropdown-toggle navbar-derecha" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

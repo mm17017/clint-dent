@@ -26,7 +26,7 @@
                 </div>
                 <div class="top-right links">
                     @auth
-                    <a href="{{ url('/home') }}">Ir a citas</a>
+                    <a href="home?var=citas">Ir a citas</a>
 
                     @else
                     <a href="{{ route('login') }}">Iniciar Sesión</a>

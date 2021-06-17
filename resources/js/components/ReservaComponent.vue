@@ -73,7 +73,7 @@
                         class="custom-select"
                         id="servicios"
                         v-model="cita.jornada_id"
-                        autofocus="autofocus"
+                        autofocus="autofocus"                        
                     >
                         <option disabled selected
                             >--SELECCIONE UNA HORA--</option
@@ -141,6 +141,7 @@
 
 <script>
 export default {
+    props: ['reserva'],
     data() {
         return {
             detalles: [],
@@ -152,7 +153,7 @@ export default {
                 serviciosSeleccionados: [],
                 user_id: 0,
                 estado_cita_id: 1,
-                jornada_id: {}
+                jornada_id: "",
             },
             detalle: {},
             errors: {},
@@ -179,13 +180,13 @@ export default {
                 serviciosSeleccionados: [],
                 user_id: 0,
                 estado_cita_id: 1,
-                jornada_id: {}
+                jornada_id: "",
             };
         },
 
         async getJornadas(fecha) {
             const res = await axios.get("/jornadas/" + this.cita.fecha_cita);
-            this.jornadas = res.data;
+            this.jornadas = res.data;            
         }
     },
 
@@ -193,6 +194,16 @@ export default {
         axios.get("/servicios").then(res => {
             this.servicios = res.data;
         });
+
+        if(this.reserva){
+            console.log(this.reserva);
+            this.cita.descripcion = this.reserva.descripcion;
+            this.cita.fecha_cita = this.reserva.fecha_cita;
+            this.cita.serviciosSeleccionados = this.reserva.servicios;
+            this.cita.user_id = this.reserva.user_id;
+            this.cita.estado_cita_id = this.reserva.estado_cita_id;
+            this.cita.jornada_id = this.reserva.jornada_id[0].id;            
+        }
     }
 };
 </script>

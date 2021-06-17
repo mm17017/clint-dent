@@ -23,6 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        // $codigo = $id;
         return view('home');
     }
 }
