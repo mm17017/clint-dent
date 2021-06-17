@@ -92,8 +92,9 @@
         <div class="imagen">
             <img src="{{asset('img/inicio-2.png')}}" alt="inicio">
         </div>
-    </div>
 
+    </div>
+    <servicios-component/>
 
 
 </div>

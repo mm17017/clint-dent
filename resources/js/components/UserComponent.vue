@@ -237,7 +237,6 @@ export default {
           .put(`/user/${this.usuario.id}`, this.usuario)
           .then((res) => {
             this.response = res.data.message;
-            this.usuario = [];
             this.limpiarErrores();
           })
           .catch((error) => {
