@@ -20,7 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/inicio','InicioController@index')->name('inicio');
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/usuario','UserController@vista')->name('usuario');
+
 
 Auth::routes();
 
@@ -31,6 +31,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware'=>'auth'],function (){
+    Route::get('/usuario','UserController@vista')->name('usuario');
     Route::apiResource('/detalle', 'DetalleCitaController');
     Route::apiResource('/estadocita','EstadoCitaController');
     Route::apiResource('/jornada','JornadaController');
