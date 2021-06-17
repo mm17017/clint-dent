@@ -27,8 +27,11 @@ class DetalleCitaController extends Controller
      */
     public function index()
     {
-
-        return Detalle_cita::where('user_id', Auth::user()->id)->get();
+        $citas = Detalle_cita::where('user_id', Auth::user()->id)->get();
+        foreach ($citas as $key => $cita) {
+            $cita->jornada_id = Jornada::where('id', $cita->jornada_id)->get();
+        } 
+        return $citas;
         // return Detalle_cita::all();
     }
 
@@ -125,7 +128,7 @@ class DetalleCitaController extends Controller
 
         foreach ($jornadas as $key => $jornada) {
             $ocupada = false;
-            if (strtotime($jornada->hora_inicio) > time() || $request != date('Y-m-d')) {
+            if (strtotime($jornada->hora_inicio) > time() && strtotime($request) == strtotime(date('Y-m-d')) || (strtotime($request) > strtotime(date('Y-m-d')))) {
                 foreach ($citas as $cita) {
                     if ($cita->jornada_id == $jornada->id) {
                         $ocupada = true;
