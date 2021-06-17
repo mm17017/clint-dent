@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    
     <title>CLINT-DENT</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="shortcut icon" href="../img/favicon.ico">
@@ -113,6 +115,83 @@
                 <p>Para nosotros lo más importante es el cuidado del paciente en forma integral.</p>
             </div>
         </div>
+        <h1 class="content sobre-nosotros-titulo-h1">Nuestros Servicios</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                  <th scope="col">Codigo de Servicio</th>
+                  <th scope="col">Descripcion del Servicio</th>
+                  <th scope="col">Precio  del Servicio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Limpieza Dental</td>
+                    <td>$35.00</td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Resina Dental</td>
+                    <td>$40.00</td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Endodoncia</td>
+                    <td>$155.00</td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td>Coronas Dentales</td>
+                    <td>$285.00</td>
+                </tr>
+                <tr>
+                    <th scope="row">5</th>
+                    <td>Implantes Dentales</td>
+                    <td>$800.00</td>
+                </tr>
+                <tr>
+                    <th scope="row">6</th>
+                    <td>Extracción</td>
+                    <td>$50.00</td>
+                </tr>
+                <tr>
+                    <th scope="row">7</th>
+                    <td>Guarda Oclusal</td>
+                    <td>$75.00</td>
+                </tr>
+                <tr>
+                    <th scope="row">8</th>
+                    <td>Puentes Dentales</td>
+                    <td>$860.00</td>
+                </tr>
+                <tr>
+                    <th scope="row">9</th>
+                    <td>Brackets Tradicionales</td>
+                    <td>$335.00</td>
+                </tr>
+                <tr>
+                    <th scope="row">10</th>
+                    <td>Brackes Estéticos</td>
+                    <td>$675.00</td>
+                </tr>
+                <tr>
+                    <th scope="row">11</th>
+                    <td>Brackets Autoligados</td>
+                    <td>$575.00</td>
+                </tr>
+                <tr>
+                    <th scope="row">12</th>
+                    <td>Invisaling</td>
+                    <td>$1255.00</td>
+                </tr>
+                <tr>
+                    <th scope="row">13</th>
+                    <td>Blanqueamiento Dental</td>
+                    <td>$200.00</td>
+                </tr>
+            </tbody>  
+        </table>
     </div>
 
 
