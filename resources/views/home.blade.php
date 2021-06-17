@@ -3,9 +3,7 @@
 @section('content')
 <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-<h1 class="h1-inicio">
-    Bienvenido a nuestro sistema de reserva en línea
-</h1>
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

@@ -11047,6 +11047,10 @@ body {
   }
 }
 
+.navbar-derecha {
+  margin-right: 0;
+}
+
 .servicio p {
   line-height: 2rem;
   text-align: center;
@@ -13388,10 +13392,10 @@ pre code {
   font-weight: 500;
   line-height: 1.6;
   color: #ffffff;
-  background-color: transparent;
+  background-color: transparent !important;
   background-clip: padding-box;
-  border: 1px solid #ced4da;
-  border-radius: 0.75rem;
+  border: 1px solid #ced4da !important;
+  border-radius: 0.75rem !important;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
@@ -13408,7 +13412,7 @@ pre code {
 
 .form-control:-moz-focusring {
   color: white;
-  text-shadow: 0 0 0 #495057;
+  text-shadow: white;
 }
 
 .form-control:focus {
@@ -13430,7 +13434,7 @@ pre code {
 }
 
 .form-control::placeholder {
-  color: white;
+  color: #e7ebda !important;
   opacity: 1;
 }
 
@@ -13447,6 +13451,7 @@ input[type=month].form-control {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  color: white;
 }
 
 select.form-control:focus::-ms-value {
@@ -14680,7 +14685,7 @@ input[type=button].btn-block {
   color: #212529;
   text-align: left;
   list-style: none;
-  background-color: #fff;
+  background-color: #0f3443 !important;
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 0.25rem;
@@ -14692,7 +14697,7 @@ input[type=button].btn-block {
 }
 
 .dropdown-menu-right {
-  right: 0;
+  right: 5rem;
   left: auto;
 }
 
@@ -14846,7 +14851,7 @@ input[type=button].btn-block {
 }
 
 .dropdown-item {
-  display: block;
+  display: flex;
   width: 100%;
   padding: 0.25rem 1.5rem;
   clear: both;
@@ -14862,14 +14867,14 @@ input[type=button].btn-block {
 .dropdown-item:focus {
   color: #16181b;
   text-decoration: none;
-  background-color: white;
+  background-color: #0f3443 !important;
 }
 
 .dropdown-item.active,
 .dropdown-item:active {
   color: #fff;
   text-decoration: none;
-  background-color: #3490dc;
+  background-color: #0f3443 !important;
 }
 
 .dropdown-item.disabled,
@@ -15380,9 +15385,9 @@ input[type=button].btn-block {
   line-height: 1.6;
   color: #495057;
   vertical-align: middle;
-  background: #fff url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") right 0.75rem center/8px 10px no-repeat;
+  background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") right 0.75rem center/8px 10px no-repeat;
   border: 1px solid #ced4da;
-  border-radius: 0.25rem;
+  border-radius: 0.75rem;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -15838,7 +15843,7 @@ input[type=button].btn-block {
 .navbar-collapse {
   flex-basis: 100%;
   flex-grow: 1;
-  align-items: center;
+  align-items: right;
 }
 
 .navbar-toggler {

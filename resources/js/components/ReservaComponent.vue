@@ -13,7 +13,7 @@
                 <label
                     for="descripcion"
                     class="col-md-4 col-form-label text-md-right color-blanco"
-                    >Descripcion</label
+                    >Descripción</label
                 >
 
                 <div class="col-md-6">
@@ -71,12 +71,13 @@
                         class="custom-select"
                         id="servicios"
                         v-model="cita.jornada_id"
+                        autofocus = "autofocus"
                     >
                         <option
-                            value=""
                             disabled
                             selected
                         >--SELECCIONE UNA HORA--</option>
+                        
                         <option
                             v-for="jornada in jornadas"
                             :value="jornada.id"
@@ -93,6 +94,7 @@
                     >
                 </div>
             </div>
+
 
             <div class="form-group row">
                 <label
