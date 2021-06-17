@@ -1,6 +1,9 @@
 <template>
   <div class="container">
-    <div class="row justify-content-center">
+    <div
+      class="row justify-content-center modal"
+      :class="{ mostrar: modificar == true }"
+    >
       <div class="col-md-8">
         <div class="card-body contenedor sombra gradiente-form">
           <h2 class="text-center padding-bottom color-blanco">
@@ -14,17 +17,6 @@
           >
             {{ response }}
             <button class="btn btn-danger right" onclick="history.back()">
-              Volver a inicio
-            </button>
-          </div>
-          <div
-            v-if="eliminado"
-            class="alert alert-danger"
-            align-center
-            role="alert"
-          >
-            {{ eliminado }}
-            <button class="btn btn-success right" onclick="history.back()">
               Volver a inicio
             </button>
           </div>
@@ -205,11 +197,11 @@
           </div>
           <div class="form-group row mb-0">
             <div class="col-md-6 offset-md-4 text-right">
-              <button @click="actualizar" class="btn btn-default">
+              <button @click="actualizar" class="btn btn-warning">
                 Modificar Cuenta
               </button>
-              <button @click="eliminar" class="btn btn-danger">
-                Eliminar Cuenta
+              <button @click="cancelarActualizacion" class="btn btn-danger">
+                Cancelar
               </button>
             </div>
           </div>
@@ -217,6 +209,7 @@
         </div>
       </div>
     </div>
+    <info-user-component :usuario="usuario" @abrirModal="mostrarModal" />
   </div>
 </template>
 <script>
@@ -227,11 +220,17 @@ export default {
       errors: {},
       confirmacion: [],
       confirmar: "",
-      eliminado: "",
       response: "",
+      modificar: false,
     };
   },
   methods: {
+    mostrarModal() {
+      this.modificar = true;
+    },
+    cancelarActualizacion(){
+      this.modificar=false
+    },
     actualizar() {
       if (this.usuario.password === this.confirmar) {
         axios
@@ -259,16 +258,10 @@ export default {
               };
             }
           });
+        this.modificar = false;
       } else {
         this.confirmacion.push("No coincide la confirmacion de contrasena");
       }
-    },
-    eliminar() {
-      axios.delete(`user/${this.usuario.id}`).then((res) => {
-        this.eliminado = res.data.message;
-        this.usuario = [];
-        window.location.href='http://127.0.0.1:8000/login'
-      });
     },
     limpiarErrores() {
       this.errors = {};
@@ -286,4 +279,9 @@ export default {
 };
 </script>
 <style scoped>
+.mostrar {
+  display: list-item;
+  opacity: 1;
+  background: rgba(44, 38, 75, 0.489);
+}
 </style>
