@@ -41,6 +41,8 @@
                     class="col-md-4 col-form-label text-md-right color-blanco"
                     >Fecha de cita</label
                 >
+
+                
                 <div class="col-md-6">
                     <input
                         v-model="cita.fecha_cita"
@@ -71,13 +73,12 @@
                         class="custom-select"
                         id="servicios"
                         v-model="cita.jornada_id"
-                        autofocus = "autofocus"
+                        autofocus="autofocus"
                     >
-                        <option
-                            disabled
-                            selected
-                        >--SELECCIONE UNA HORA--</option>
-                        
+                        <option disabled selected
+                            >--SELECCIONE UNA HORA--</option
+                        >
+
                         <option
                             v-for="jornada in jornadas"
                             :value="jornada.id"
@@ -95,25 +96,23 @@
                 </div>
             </div>
 
+            <div class="form-group">
+                <h2 class="h1-inicio-reserva">
+                  <span style="text-transform: uppercase; color: #267d39 !important">  Nuestros </span>servicios 
+                </h2>
+                <br>
 
-            <div class="form-group row">
-                <label
-                    for="servicios"
-                    class="col-md-4 col-form-label text-md-right color-blanco"
-                    >Servicios</label
-                >
-
-                <div class="col-md-6">
+                <div class="check-grid">
                     <div v-for="servicio in servicios" :key="servicio.id">
-                        <label for="servicio.descripcion">{{
-                            servicio.descripcion
-                        }}</label>
                         <input
                             type="checkbox"
                             id="servicio.descripcion"
                             :value="servicio.id"
                             v-model="cita.serviciosSeleccionados"
                         />
+                        <label for="servicio.descripcion" class="color-blanco" style="font-weight: 800;">{{
+                            servicio.descripcion
+                        }}</label>
                     </div>
                     <span
                         v-for="(pass, index) in errors.serviciosSeleccionados"

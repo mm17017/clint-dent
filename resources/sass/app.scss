@@ -250,10 +250,32 @@ background: linear-gradient(to bottom, #11998e, #38ef7d); /* W3C, IE 10+/ Edge, 
     height: 100vh;
 }
 
-select{
+//PARA LOS CHECKBOX
+.check-grid{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 2rem;
+  
   
 }
-//PARA LOS CHECKBOX
+.h1-inicio-reserva{
+  text-align: center;
+  color: #0f3443;
+  font-weight: 900;
+  font-size: 2.4rem;
+  text-transform: uppercase;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 .flex-center {
@@ -605,6 +627,7 @@ th {
 label {
   display: inline-block;
   margin-bottom: 0.5rem;
+  font-weight: 600;
 }
 
 button {
@@ -2493,7 +2516,7 @@ pre code {
   font-size: 0.9rem;
   font-weight: 500;
   line-height: 1.6;
-  color: #ffffff;
+  color: #ffffff !important;
   background-color: transparent !important;
   background-clip: padding-box;
   border: 1px solid #ced4da !important;
@@ -2596,7 +2619,7 @@ select.form-control:focus::-ms-value {
   margin-bottom: 0;
   font-size: 0.9rem;
   line-height: 1.6;
-  color: #212529;
+  color: white;
   background-color: transparent;
   border: solid transparent;
   border-width: 1px 0;
@@ -4406,11 +4429,11 @@ input[type=button].btn-block {
 }
 
 .custom-checkbox .custom-control-label::before {
-  border-radius: 0.25rem;
+  border-radius: 0.50rem;
 }
 
 .custom-checkbox .custom-control-input:checked ~ .custom-control-label::after {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8' viewBox='0 0 8 8'%3e%3cpath fill='%23fff' d='M6.564.75l-3.59 3.612-1.538-1.55L0 4.26l2.974 2.99L8 2.193z'/%3e%3c/svg%3e");
+  background-image: url('http://s6.picofile.com/d/8392306668/c38c12a0-6db3-47d4-a80c-7dad8fab5186/checkmark.svg');
 }
 
 .custom-checkbox .custom-control-input:indeterminate ~ .custom-control-label::before {
@@ -4486,7 +4509,7 @@ input[type=button].btn-block {
   font-size: 0.9rem;
   font-weight: 400;
   line-height: 1.6;
-  color: #495057;
+  color: white;
   vertical-align: middle;
   background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='4' height='5' viewBox='0 0 4 5'%3e%3cpath fill='%23343a40' d='M2 0L0 2h4zm0 5L0 3h4z'/%3e%3c/svg%3e") right 0.75rem center/8px 10px no-repeat;
   border: 1px solid #ced4da;

@@ -9,7 +9,7 @@
         <div class="col-md-8">
             <div class="">
                 <div class="card-body contenedor sombra gradiente-form col-form-label">
-                    <h2 class="text-center padding-bottom color-blanco">Reserva tu cita</h2>
+                    <h2 class="text-center padding-bottom color-blanco" style="text-transform: uppercase; font-weight:700;">Reserva tu cita</h2>
                     @if (session('status'))
                     <div class="alert alert-success" role="alert">
                         {{ session('status') }}
