@@ -691,7 +691,7 @@ button::-moz-focus-inner,
 
 input[type=radio],
 input[type=checkbox] {
-  box-sizing: border-box;
+  box-sizing: content-box;
   padding: 0;
 }
 
@@ -6599,6 +6599,7 @@ a.close.disabled {
 .modal {
   position: fixed;
   top: 0;
+  right: 100%;
   left: 0;
   z-index: 1050;
   display: none;
@@ -6606,6 +6607,7 @@ a.close.disabled {
   height: 100%;
   overflow: hidden;
   outline: 0;
+
 }
 
 .modal-dialog {

@@ -2,4 +2,6 @@
 
 @section('content')
 <user-component/>
+
+
 @endsection()
