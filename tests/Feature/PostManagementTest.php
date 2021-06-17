@@ -14,19 +14,11 @@ class PostManagementTest extends TestCase
     use RefreshDatabase;
     /** @test */
     public function a_post_can_be_created()
-    {
-        
-        $response = $this->postJson('/detalle', [
-            'descripcion'=>'Cosas',
-            'fecha_cita'=>'2021-06-20',
-            'user_id'=>1,
-            'estado_cita_id'=>1,
-            'jornada_id'=>1,
-            'serviciosSeleccionados'=>[1,2]
+    {        
+        $response = $this->postJson('/api/tipousuario', [
+            'tipo_usuario'=>'Cliente',
+            'descripcion'=>'Cliente baboso'
         ]);
-
-        
-
         $response->assertStatus(201)->assertJson([
             'res'=>true
         ]);
