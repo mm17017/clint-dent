@@ -16,7 +16,6 @@ class DetalleCitaController extends Controller
 
     public function __construct()
     {
-      
     }
 
 
@@ -43,16 +42,16 @@ class DetalleCitaController extends Controller
         $input = $request->all();
         $input['user_id'] = Auth::user()->id;
         $detalle = new Detalle_cita;
-        $detalle->fill($input);                                 
+        $detalle->fill($input);
         $detalle->save();
         foreach ($request->serviciosSeleccionados as $servicio) {
-            $detalle->servicios()->attach($servicio);             
+            $detalle->servicios()->attach($servicio);
         }
         return response()->json([
-            'res'=>true,
-            'messagge'=>'Reserva realizada',
-            'detalle_cita'=>$detalle
-        ],status:201);
+            'res' => true,
+            'messagge' => 'Reserva realizada',
+            'detalle_cita' => $detalle
+        ], status: 201);
     }
 
     /**
@@ -75,20 +74,19 @@ class DetalleCitaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(DetalleCitaRequest $request,$id)
+    public function update(DetalleCitaRequest $request, $id)
     {
-   
+
         $input = $request->all();
         $detalle = Detalle_cita::findOrFail($id);
         $detalle->fill($input);
         $detalle->save();
         $detalle->servicios()->sync($request->serviciosSeleccionados);
         return response()->json([
-            'res'=>true,
-            'messagge'=>'Registro actualizado correctamente',
-            'detalle_cita'=>$detalle
-        ],status:200);
-        
+            'res' => true,
+            'messagge' => 'Registro actualizado correctamente',
+            'detalle_cita' => $detalle
+        ], status: 200);
     }
 
     /**
@@ -99,13 +97,12 @@ class DetalleCitaController extends Controller
      */
     public function destroy($id)
     {
-        
+
         Detalle_cita::destroy($id);
         return response()->json([
-            'res'=>true,
-            'message'=>'Registro eliminado correctamente'
-        ],status:200);
-        
+            'res' => true,
+            'message' => 'Registro eliminado correctamente'
+        ], status: 200);
     }
 
     public function getServicios()
@@ -113,22 +110,31 @@ class DetalleCitaController extends Controller
         return Servicio::get();
     }
 
-    public function getJornadas($request){
+    public function getJornadas($request)
+    {
         $ocupada = false;
-        //Obteniendo todas las jornadas
-        $jornadas = Jornada::get();
+        date_default_timezone_set('America/El_Salvador');
 
-        //Obteniendo citas de una fecha especifica
-        $citas = Jornada::join('detalle_citas','jornadas.id','=','detalle_citas.jornada_id')->where('fecha_cita','=',$request)->get();                           
+        //Obteniendo todas las jornadas
+        $jornadas = Jornada::get(); 
+        
+        //Obteniendo todas las citas de la fecha solicitada
+        $citas = Jornada::join('detalle_citas', 'jornadas.id', '=', 'detalle_citas.jornada_id')->where('fecha_cita', '=', $request)->get();
+
         foreach ($jornadas as $key => $jornada) {
-            $ocupada = false;                                    
-            foreach ($citas as $cita) {                
-                if($cita->jornada_id == $jornada->id){                                        
-                    $ocupada = true;                                   
-                    break;
+            $ocupada = false;
+            if (strtotime($jornada->hora_inicio) > time() || $request != date('Y-m-d')) {
+                foreach ($citas as $cita) {
+                    if ($cita->jornada_id == $jornada->id) {
+                        $ocupada = true;
+                        break;
+                    }
                 }
-            }
-            if($ocupada == true){                
+
+                if ($ocupada == true) {
+                    unset($jornadas[$key]);
+                }
+            } else {
                 unset($jornadas[$key]);
             }
         }
