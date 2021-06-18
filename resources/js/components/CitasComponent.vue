@@ -22,7 +22,6 @@
           <!-- <th scope="col">ID</th> -->
           <th scope="col">Fecha</th>
           <th scope="col">Hora</th>
-          <th scope="col">Estado de la Cita</th>
           <th scope="col">Detalle</th>
         </tr>
       </thead>
@@ -31,35 +30,6 @@
           <!-- <th scope="row">{{ detalle.id }}</th> -->
           <td>{{ detalle.fecha_cita }}</td>
           <td>{{ detalle.jornada_id[0].hora_inicio }}</td>
-          <td>
-            <span
-              v-if="detalle.estado_cita_id[0].estado == 'Finalizado'"
-              v-bind:class="{
-                'text-primary font-weight-bolder':
-                  detalle.estado_cita_id[0].estado == 'Finalizado',
-              }"
-            >
-              {{ detalle.estado_cita_id[0].estado }}
-            </span>
-                        <span
-              v-else-if="detalle.estado_cita_id[0].estado == 'En proceso'"
-              v-bind:class="{
-                'text-dark font-weight-bolder':
-                  detalle.estado_cita_id[0].estado == 'En proceso',
-              }"
-            >
-              {{ detalle.estado_cita_id[0].estado }}
-            </span>
-                        <span
-              v-else
-              v-bind:class="{
-                'text-danger font-weight-bolder':
-                  detalle.estado_cita_id[0].estado == 'Cancelado',
-              }"
-            >
-              {{ detalle.estado_cita_id[0].estado }}
-            </span>
-          </td>
           <td>
             <button
               @click="
