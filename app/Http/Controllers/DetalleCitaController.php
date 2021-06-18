@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\DetalleCitaRequest;
 use App\Http\Requests\CreateDetalleCitaRequest;
 use App\Models\Jornada;
+use App\Models\Estado_cita;
 use Illuminate\Support\Facades\Date;
 
 class DetalleCitaController extends Controller
@@ -30,6 +31,7 @@ class DetalleCitaController extends Controller
         $citas = Detalle_cita::where('user_id', Auth::user()->id)->get();
         foreach ($citas as $key => $cita) {
             $cita->jornada_id = Jornada::where('id', $cita->jornada_id)->get();
+            $cita->estado_cita_id = Estado_cita::where('id',$cita->estado_cita_id)->get();
         } 
         return $citas;
         // return Detalle_cita::all();

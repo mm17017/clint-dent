@@ -14,7 +14,7 @@
         >
             {{ response }}
         </div>
-        <form method="POST" id="reserva">
+        <!-- <form method="POST" id="reserva"> -->
             <div class="form-group row">
                 <label
                     for="descripcion"
@@ -141,7 +141,7 @@
                     class="col-md-6 offset-md-4 text-right"
                     style="display: flex; justify-content: space-evenly;"
                 >
-                    <a href="#"
+                    <a href="http://127.0.0.1:8000/home?var=citas"
                         ><button class="btn btn-secondary">
                             Historial
                         </button>
@@ -155,7 +155,7 @@
                     </button>
                 </div>
             </div>
-        </form>
+        <!-- </form> -->
     </div>
 </template>
 

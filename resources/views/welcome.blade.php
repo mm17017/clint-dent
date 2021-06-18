@@ -28,6 +28,7 @@
                 </div>
                 <div class="top-right links">
                     @auth
+                    <a href="{{asset('/inicio')}}">Inicio</a>
                     <a href="home?var=citas">Ver historial de Citas</a>
                     <a href="home?var=reserva">Pide tu cita</a>
 

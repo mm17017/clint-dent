@@ -5,7 +5,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
 
-<div class="container" style="height: 100vh;">
+<div class="container" style="height: auto; min-height:100vh">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="">
@@ -18,12 +18,21 @@
 
                     <div class="componente">
                         {{-- <reserva-component /> --}}
+                        
                         @php
-                        if($_GET["var"]){
-                        $codigo = $_GET["var"];
+                        try {
+                            $codigo = "citas";
+                            if($_GET["var"]!=null){
+                                $codigo = $_GET["var"];
+                            }else {
+                                $codigo = "citas";
+                            }
+                        } catch (\Throwable $th) {
+                            
                         }
                         @endphp
-                        <home-component :codigo="{{json_encode($codigo)}}"/>
+                        <home-component :codigo='{{json_encode($codigo)}}'/>
+                        
                     </div>
                     <!-- <div class="sesion">
                         <p class="text-left align-content-lg-around">
