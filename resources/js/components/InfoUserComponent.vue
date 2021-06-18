@@ -41,9 +41,6 @@
         Eliminar Cuenta
       </button>
     </div>
-      
-      
-    </div>
   </div>
 </template>
 <script>
