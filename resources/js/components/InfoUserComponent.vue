@@ -1,15 +1,15 @@
 <template>
   <div class="row justify-content-center">
     <div class="col-md-6">
-      <table class="table table-dark table-hover table-bordered border-primary">
-        <thead>
+      <table class="table table-bordered border-primary">
+        <thead style="background-color: transparent !important; color: white !important;">
           <tr>
-            <th scope="col" colspan="2" align="center">Informacion Personal</th>
+            <th style="background-color: #0f3443 !important; color: white !important; font-weight: 900 !important; font-size: 1.6rem !important; text-align: center !important;" scope="col" colspan="2" align="center">Información Personal</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody style="background-color: transparent !important; color: white !important; font-weight: 600 !important; text-align: center !important;">
           <tr>
-            <th scope="row">Codigo de Cliente</th>
+            <th scope="row" style="font-weight: 900 !important;">Código de cliente</th>
             <td>{{ usuario.id }}</td>
           </tr>
           <tr>
@@ -21,20 +21,20 @@
             <td>{{ usuario.lastname_usuario }}</td>
           </tr>
           <tr>
-            <th scope="row">Correo Electronico</th>
+            <th scope="row">E-mail</th>
             <td>{{ usuario.email }}</td>
           </tr>
           <tr>
-            <th scope="row">Fecha de Nacimiento</th>
+            <th scope="row">Fecha de nacimiento</th>
             <td>{{ usuario.fecha_nacimiento }}</td>
           </tr>
           <tr>
-            <th scope="row">Telefono</th>
+            <th scope="row">Teléfono</th>
             <td>{{ usuario.telefono }}</td>
           </tr>
         </tbody>
       </table>
-      <button class="btn btn-warning btn-block btn-lg" @click="abrirModal">
+      <button class="btn btn-primary btn-block btn-lg" @click="abrirModal">
         Modificar datos
       </button>
       <button class="btn btn-danger btn-block btn-lg" @click="eliminarCuenta">

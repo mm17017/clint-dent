@@ -1,5 +1,7 @@
 <template>
     <div>
+        <h2 class="text-center padding-bottom color-blanco"
+                        style="text-transform: uppercase; font-weight:700;">Historial de citas</h2>
         <div
             v-if="response"
             class="alert alert-success"
@@ -8,8 +10,8 @@
         >
             {{ response }}
         </div>
-        <table class="table table-striped">
-            <thead class="thead-dark">
+        <table class="table table-striped" style="text-align: center;">
+            <thead class="" style="background-color: transparent !important; color: white !important; font-weight: 800 !important;">
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">Fecha</th>
@@ -30,7 +32,7 @@
                                 errors = {};
                                 response = '';
                             "
-                            class="btn btn-warning"
+                            class="btn btn-primary"
                         >
                             Ver Cita
                         </button>
@@ -45,12 +47,13 @@
                 <div class="modal-content">
                     <!-- Modal Header -->
                     <div class="modal-header">
-                        <h4 class="modal-title">{{ tituloModal }}</h4>
+                        <h4 class="modal-title" style="text-align: center !important; text-transform: uppercase !important;">{{ tituloModal }}</h4>
                         <button
                             type="button"
                             @click="cerrarModal()"
                             class="close"
                             data-dismiss="modal"
+                            style="color: white !important;"
                         >
                             &times;
                         </button>
@@ -62,7 +65,7 @@
                             <!-- MOSTRAR DETALLE DE CITA SIN MODIFICAR -->
                             <div v-if="modificar == false">
                                 <div class="form-group row">
-                                    <label for="descripcion">Descripcion</label>
+                                    <label for="descripcion">Descripción</label>
                                     <input
                                         type="text"
                                         class="form-control"
@@ -105,6 +108,7 @@
                                     disabled
                                     id="servicios"
                                     v-model="cita.serviciosSeleccionados"
+                                    style="background-color: black !important; color: white !important;"
                                 >
                                     <option
                                         v-for="servicio in servicios"
@@ -414,5 +418,8 @@ export default {
     display: list-item;
     opacity: 1;
     background: rgba(44, 38, 75, 0.489);
+}
+.modal-dialog{
+    background-color: black;
 }
 </style>

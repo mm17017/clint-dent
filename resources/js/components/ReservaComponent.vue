@@ -1,5 +1,11 @@
 <template>
     <div class="container">
+        <h2
+            class="text-center padding-bottom color-blanco"
+            style="text-transform: uppercase; font-weight:700;"
+        >
+            Reserva tu cita
+        </h2>
         <div
             v-if="response"
             class="alert alert-success"
@@ -42,7 +48,6 @@
                     >Fecha de cita</label
                 >
 
-                
                 <div class="col-md-6">
                     <input
                         v-model="cita.fecha_cita"
@@ -73,7 +78,7 @@
                         class="custom-select"
                         id="servicios"
                         v-model="cita.jornada_id"
-                        autofocus="autofocus"                        
+                        autofocus="autofocus"
                     >
                         <option disabled selected
                             >--SELECCIONE UNA HORA--</option
@@ -98,9 +103,13 @@
 
             <div class="form-group">
                 <h2 class="h1-inicio-reserva">
-                  <span style="text-transform: uppercase; color: #267d39 !important">  Nuestros </span>servicios 
+                    <span
+                        style="text-transform: uppercase; color: #267d39 !important"
+                    >
+                        Nuestros </span
+                    >servicios
                 </h2>
-                <br>
+                <br />
 
                 <div class="check-grid">
                     <div v-for="servicio in servicios" :key="servicio.id">
@@ -110,9 +119,12 @@
                             :value="servicio.id"
                             v-model="cita.serviciosSeleccionados"
                         />
-                        <label for="servicio.descripcion" class="color-blanco" style="font-weight: 800;">{{
-                            servicio.descripcion
-                        }}</label>
+                        <label
+                            for="servicio.descripcion"
+                            class="color-blanco"
+                            style="font-weight: 800;"
+                            >{{ servicio.descripcion }}</label
+                        >
                     </div>
                     <span
                         v-for="(pass, index) in errors.serviciosSeleccionados"
@@ -125,7 +137,15 @@
             </div>
 
             <div class="form-group row mb-0">
-                <div class="col-md-6 offset-md-4 text-right">
+                <div
+                    class="col-md-6 offset-md-4 text-right"
+                    style="display: flex; justify-content: space-evenly;"
+                >
+                    <a href="#"
+                        ><button class="btn btn-secondary">
+                            Historial
+                        </button>
+                    </a>
                     <button
                         @click="store()"
                         class="btn btn-primary"
@@ -141,7 +161,7 @@
 
 <script>
 export default {
-    props: ['reserva'],
+    props: ["reserva"],
     data() {
         return {
             detalles: [],
@@ -153,7 +173,7 @@ export default {
                 serviciosSeleccionados: [],
                 user_id: 0,
                 estado_cita_id: 1,
-                jornada_id: "",
+                jornada_id: ""
             },
             detalle: {},
             errors: {},
@@ -180,13 +200,12 @@ export default {
                 serviciosSeleccionados: [],
                 user_id: 0,
                 estado_cita_id: 1,
-                jornada_id: "",
+                jornada_id: ""
             };
         },
-
         async getJornadas(fecha) {
             const res = await axios.get("/jornadas/" + this.cita.fecha_cita);
-            this.jornadas = res.data;            
+            this.jornadas = res.data;
         }
     },
 
@@ -195,14 +214,14 @@ export default {
             this.servicios = res.data;
         });
 
-        if(this.reserva){
+        if (this.reserva) {
             console.log(this.reserva);
             this.cita.descripcion = this.reserva.descripcion;
             this.cita.fecha_cita = this.reserva.fecha_cita;
             this.cita.serviciosSeleccionados = this.reserva.servicios;
             this.cita.user_id = this.reserva.user_id;
             this.cita.estado_cita_id = this.reserva.estado_cita_id;
-            this.cita.jornada_id = this.reserva.jornada_id[0].id;            
+            this.cita.jornada_id = this.reserva.jornada_id[0].id;
         }
     }
 };
