@@ -28,7 +28,8 @@
                 </div>
                 <div class="top-right links">
                     @auth
-                    <a href="home?var=citas">Ir a citas</a>
+                    <a href="home?var=citas">Ver historial de Citas</a>
+                    <a href="home?var=reserva">Pide tu cita</a>
 
                     @else
                     <a href="{{ route('login') }}">Iniciar Sesión</a>
