@@ -75,7 +75,7 @@
                     <img class="d-block w-100" src="{{asset('images/c4.png')}}" alt="slide 4">
                 </div>
                 <div class="carousel-item">
-                    <a href="/home">
+                    <a href="home?var=reserva">
                     <img class="d-block w-100" src="{{asset('images/c5.png')}}" alt="slide 5">
                     </a>
                 </div>
