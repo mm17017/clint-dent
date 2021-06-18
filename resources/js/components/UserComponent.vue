@@ -127,7 +127,7 @@
                         <label
                             for=""
                             class="col-md-4 col-form-label text-md-right color-blanco"
-                            >Telefono</label
+                            >Teléfono</label
                         >
                         <div class="col-md-6">
                             <input
@@ -206,7 +206,7 @@
                     </div>
                     <div class="form-group row mb-0">
                         <div class="col-md-6 offset-md-4 text-right">
-                            <button @click="actualizar" class="btn btn-warning">
+                            <button @click="actualizar" class="btn btn-primary">
                                 Modificar Cuenta
                             </button>
                             <button

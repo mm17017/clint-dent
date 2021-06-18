@@ -253,7 +253,7 @@ background: linear-gradient(to bottom, #11998e, #38ef7d); /* W3C, IE 10+/ Edge, 
 //PARA LOS CHECKBOX
 .check-grid{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     column-gap: 2rem;
   
   
@@ -3077,8 +3077,8 @@ fieldset:disabled a.btn {
 
 .btn-primary:hover {
   color: #fff;
-  background-color: #87e4db !important;
-  border-color: #87e4db !important;
+  background-color: #002c31 !important;
+  border-color: #002c31 !important;
 }
 
 .btn-primary:focus,
@@ -3112,14 +3112,14 @@ fieldset:disabled a.btn {
 
 .btn-secondary {
   color: #fff;
-  background-color: #6c757d;
-  border-color: #6c757d;
+  background-color: #0d8d33 !important;
+  border-color: #0d8d33 !important;
 }
 
 .btn-secondary:hover {
   color: #fff;
-  background-color: #5a6268;
-  border-color: #545b62;
+  background-color: #047425 !important;
+  border-color: #047425 !important;
 }
 
 .btn-secondary:focus,
@@ -3821,8 +3821,9 @@ input[type=button].btn-block {
 }
 
 .dropdown-menu-right {
-  right: 5rem;
+  right: 10%;
   left: auto;
+  
 
 }
 
@@ -6689,11 +6690,12 @@ a.close.disabled {
   flex-direction: column;
   width: 100%;
   pointer-events: auto;
-  background-color: #fff;
+  background-color: black !important;
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 0.3rem;
   outline: 0;
+  color: #fff;
 }
 
 .modal-backdrop {

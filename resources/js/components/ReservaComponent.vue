@@ -1,5 +1,11 @@
 <template>
     <div class="container">
+        <h2
+            class="text-center padding-bottom color-blanco"
+            style="text-transform: uppercase; font-weight:700;"
+        >
+            Reserva tu cita
+        </h2>
         <div
             v-if="response"
             class="alert alert-success"
@@ -131,7 +137,15 @@
             </div>
 
             <div class="form-group row mb-0">
-                <div class="col-md-6 offset-md-4 text-right">
+                <div
+                    class="col-md-6 offset-md-4 text-right"
+                    style="display: flex; justify-content: space-evenly;"
+                >
+                    <a href="#"
+                        ><button class="btn btn-secondary">
+                            Historial
+                        </button>
+                    </a>
                     <button
                         @click="store()"
                         class="btn btn-primary"
@@ -189,7 +203,6 @@ export default {
                 jornada_id: ""
             };
         },
-
         async getJornadas(fecha) {
             const res = await axios.get("/jornadas/" + this.cita.fecha_cita);
             this.jornadas = res.data;
@@ -214,6 +227,4 @@ export default {
 };
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>
